@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  edu_type: 
+  name: 
+  degree: 
+  cource: 
+  pass_year: 
+  result: 
+  state: MyString
+  resume: one
+
+two:
+  edu_type: 
+  name: 
+  degree: 
+  cource: 
+  pass_year: 
+  result: 
+  state: MyString
+  resume: two

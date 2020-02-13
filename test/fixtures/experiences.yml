@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exp_type: MyString
+  name: MyString
+  city: 
+  start_date: 2020-02-13
+  end_date: 2020-02-13
+  info: MyString
+  resume: one
+
+two:
+  exp_type: MyString
+  name: MyString
+  city: 
+  start_date: 2020-02-13
+  end_date: 2020-02-13
+  info: MyString
+  resume: two
