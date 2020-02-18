@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_130939) do
     t.string "email", default: "", null: false
     t.string "website", default: "", null: false
     t.string "linkedin", default: "", null: false
-    t.datetime "birthdate", null: false
+    t.date "birthdate", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_resumes_on_user_id"
   end

@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-    belongs_to :resume
-    belongs_to :business
+    belongs_to :resume ,optional: true
+    belongs_to :business,optional: true
 end
