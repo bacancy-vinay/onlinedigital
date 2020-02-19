@@ -1,12 +1,13 @@
 class ResumesController < ApplicationController
-  before_action :find_resume, only: [:show, :edit, :update]
+  before_action :find_resume, only: [:edit, :show, :update ,:destroy]
 	def new
-		@resumes = Resume.new
+		@resume = Resume.new
   end
 
   def create
-    @resume = Resume(resume_params)
-    if@reseme.save
+    @resume = Resume.new(resume_params)
+    @resume.user_id=current_user.id
+    if@resume.save!
       redirect_to @resume
     else
       render 'new'
@@ -18,13 +19,29 @@ class ResumesController < ApplicationController
   end
 
   def index
-  	
+    @resume = Resume.all
+  end
+
+  def edit
+  end
+  
+  def update
+    if @resume.update(resume_params)
+      redirect_to @resume
+    else
+      redirect_to 'edit'
+    end
+  end
+
+  def destroy
+    @resume.destroy
+      redirect_to root_path
   end
 
   private
 
   def resume_params
-    params.require(:resume).permit(:first_name,:last_name,)
+    params.require(:resume).permit(:prefix,:first_name,:last_name,:email,:website,:linkedin,:birthdate,:user_id)
   end
 
   def find_resume

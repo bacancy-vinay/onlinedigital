@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 2020_02_13_130939) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.string "street"
-    t.string "city"
+    t.string "address1"
+    t.string "address2"
+    t.string "country"
     t.string "state"
+    t.string "city"
     t.integer "pincode"
     t.integer "business_id"
     t.integer "resume_id"
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_130939) do
   end
 
   create_table "resumes", force: :cascade do |t|
+    t.string "prefix", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false

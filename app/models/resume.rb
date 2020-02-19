@@ -6,4 +6,6 @@ class Resume < ApplicationRecord
   has_many :experiences
   has_many :interest
   has_many :addresses
+
+  PREFIX_LIST = ["Mr.", "Mrs", "Ms.", "Dr."]
 end

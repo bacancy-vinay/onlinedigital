@@ -1,0 +1,10 @@
+<%= @resume.prefix%>
+<%= @resume.first_name %>
+<%= @resume.last_name %>
+<%= @resume.last_name %>
+<%= @resume.email %>
+<%= @resume.website %>
+<%= @resume.linkedin %>
+<%= @resume.birthdate %>
+<%= link_to "edit", edit_resume_path(@resume) %>
+<%= link_to "delete", resume_path(@resume), method: :delete, data: {confirm:"Are you sure?"}%>
