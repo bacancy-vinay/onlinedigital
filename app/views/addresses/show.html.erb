@@ -1,0 +1,9 @@
+<%= @address.address1%>
+<%= @address.address2%>
+<%= @address.country%>
+<%= @address.state%>
+<%= @address.city%>
+<%= @address.pincode%>
+
+<%= link_to "edit", edit_address_path(@address) %>
+<%= link_to "delete", address_path(@address), method: :delete, data: {confirm:"Are you sure?"}%>

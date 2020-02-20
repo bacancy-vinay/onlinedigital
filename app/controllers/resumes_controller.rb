@@ -8,7 +8,9 @@ class ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
     @resume.user_id=current_user.id
     if@resume.save!
-      redirect_to @resume
+      
+      # redirect_to @resume
+      redirect_to new_address_path(:resume_id => @resume.id)
     else
       render 'new'
     end
@@ -35,7 +37,7 @@ class ResumesController < ApplicationController
 
   def destroy
     @resume.destroy
-      redirect_to root_path
+      redirect_to resumes_path
   end
 
   private

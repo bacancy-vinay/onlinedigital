@@ -1,0 +1,29 @@
+
+<table class = "table">
+<thead class="thead-dark">
+  <tr>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Pincode</th>
+  </tr>
+</thead>
+<% @address.each do |address| %>
+  <tr>
+  <td><%= address.address1%></td>
+  <td><%= address.address2%></td>
+  <td><%= CS.countries[address.country.to_sym] %></td>
+  <td><%= CS.states(address.country.to_sym)[address.state.to_sym] %></td>
+  <td><%= address.city%></td>
+  <td><%= address.pincode%></td>
+  <td><%= link_to "show", address_path(address) %></td>
+  <td><%= link_to "edit", edit_address_path(address) %></td>
+  <td><%= link_to "delete", address_path(address), method: :delete, data: {confirm:"Are you sure?"}%></td>
+<% end %>
+</tr>
+</table>
+<div class="btn btn-info">
+<%= link_to "create new ", new_address_path, :class => "btn" %> 
+</div>

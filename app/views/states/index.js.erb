@@ -1,0 +1,15 @@
+
+
+// Clear the options in the select box
+
+
+// Add a placeholder
+var placeholder = document.createElement("option");
+placeholder.text = "Choose a state";
+placeholder.value = "";
+address_state.appendChild(placeholder);
+
+// Add the states
+<% @states.each do |s| %>
+ address_state.options[address_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
+ <% end %>
