@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_130939) do
+ActiveRecord::Schema.define(version: 2020_02_19_120831) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "info", default: "", null: false
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 2020_02_13_130939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_experiences_on_resume_id"
+  end
+
+  create_table "fieldchoices", force: :cascade do |t|
+    t.string "main_field"
+    t.string "sub_field"
+    t.string "exp_year"
+    t.string "exp_month"
+    t.integer "resume_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_fieldchoices_on_resume_id"
   end
 
   create_table "interests", force: :cascade do |t|

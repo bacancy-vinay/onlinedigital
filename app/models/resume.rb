@@ -6,6 +6,7 @@ class Resume < ApplicationRecord
   has_many :experiences
   has_many :interest
   has_many :addresses
+  has_one :fieldchoice
 
   PREFIX_LIST = ["Mr.", "Mrs", "Ms.", "Dr."]
 end
