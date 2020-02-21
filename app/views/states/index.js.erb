@@ -1,9 +1,7 @@
-
+var state = document.getElementById("address_state");
 
 // Clear the options in the select box
-
-
-// Add a placeholder
+while (state.firstChild) state.removeChild(state.firstChild);
 var placeholder = document.createElement("option");
 placeholder.text = "Choose a state";
 placeholder.value = "";

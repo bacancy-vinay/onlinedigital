@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
   get 'states/index'
   get 'cities/index'
+  get 'resumes/sidebar'
   devise_for :users
   resources :addresses
   resources :resumes
