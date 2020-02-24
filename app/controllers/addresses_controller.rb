@@ -6,18 +6,19 @@ class AddressesController < ApplicationController
 
   def new
     @address = Address.new
-    @address.resume_id = params[:resume_id]
   end
 
   def index
     @address = Address.all
+    
   end
 
   def create
     @address = Address.new(address_params)
+    @address.resume_id = params[:resume_id]
 
     if @address.save!
-      redirect_to addresses_path
+      redirect_to resume_addresses_path
     else
       render 'new'
     end
@@ -36,9 +37,8 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-    puts '============destroy'
-    @address&.destroy
-    redirect_to addresses_path
+    @address.destroy
+    redirect_to resume_addresses_path
   end
 
   private

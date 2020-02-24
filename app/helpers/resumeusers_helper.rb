@@ -1,0 +1,2 @@
+module ResumeusersHelper
+end

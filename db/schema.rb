@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_120831) do
+ActiveRecord::Schema.define(version: 2020_02_24_054413) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "info", default: "", null: false
@@ -105,6 +105,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_120831) do
   end
 
   create_table "resumes", force: :cascade do |t|
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "resumeusers", force: :cascade do |t|
     t.string "prefix", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -112,8 +117,10 @@ ActiveRecord::Schema.define(version: 2020_02_19_120831) do
     t.string "website", default: "", null: false
     t.string "linkedin", default: "", null: false
     t.date "birthdate", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_resumes_on_user_id"
+    t.integer "resume_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_resumeusers_on_resume_id"
   end
 
   create_table "skills", force: :cascade do |t|

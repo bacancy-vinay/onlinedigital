@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light  bg-light ">
     <a class= "navbar-brand"><%=  link_to "Digital Profile", root_path, class: "navbar-brand"%></a>
     <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,6 @@
       <% if user_signed_in?%>
       <li class = nav-item ><%= link_to "Account", edit_user_registration_path, class: "active"%> </li>
       <li class = nav-item ><%= link_to "Resume",  resumes_path  , class: "active"%></li>
-      <li class = nav-item ><%= link_to "Business", new_business_path, class: "active"%></li>
       <li class = nav-item ><span class="fa fa-sign-out"></span> <%= link_to "sign out", destroy_user_session_path , method: :delete %></li>
       <%else%>
       <li class = nav-item ><%= link_to "Sign Up", new_user_registration_path,class: "active" %></li>
@@ -20,3 +19,4 @@
     </ul>
   </div>
 </nav>
+ 

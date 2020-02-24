@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
  
+  
   get 'states/index'
   get 'cities/index'
   get 'resumes/sidebar'
   devise_for :users
-  resources :addresses
-  resources :resumes
-  resources :businesses
+  resources :resumes do
+    resources :resumeusers 
+    resources :addresses
+    resources :businesses
+  end
   resources :cities, only: :index
   resources :states, only: :index
 

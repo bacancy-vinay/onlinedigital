@@ -1,6 +1,6 @@
-<%= form_with(method: "post", model: @address) do |f|%>
-  <%= hidden_field_tag :resume_id, params[:resume_id] %>
-<div class="field">
+<%= form_with(method: "POST", model: @address,:url => resume_addresses_path) do |f|%>
+    <%= hidden_field_tag :resume_id, params[:resume_id] %>
+
   <%= f.label :address1 %><br />
   <%= f.text_field :address1, autofocus: true, autocomplete: "address1" %>
 </div>

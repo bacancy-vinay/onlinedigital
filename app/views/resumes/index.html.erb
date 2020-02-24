@@ -1,31 +1,14 @@
 
-<table class = "table">
-<thead class="thead-dark">
-  <tr>
-    <th>Prefix</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-    <th>Website</th>
-    <th>Linked-in</th>
-    <th>Birthdate</th>
-  </tr>
-</thead>
-<% @resume.each do |resume| %>
-  <tr>
-  <td><%= resume.prefix%></td>
-  <td><%= resume.first_name %></td>
-  <td><%= resume.last_name %></td>
-  <td><%= resume.email %></td>
-  <td><%= resume.website %></td>
-  <td><%= resume.linkedin %></td>
-  <td><%= resume.birthdate %></td>
-  <td><%= link_to "show", resume_path(resume) %></td>
-  <td><%= link_to "edit", edit_resume_path(resume) %></td>
-  <td><%= link_to "delete", resume_path(resume), method: :delete, data: {confirm:"Are you sure?"}%></td>
-<% end %>
-</tr>
-</table>
 <div class="btn btn-info">
 <%= link_to "create new ", new_resume_path, :class => "btn" %> 
 </div>
+
+<% @resume.each do |resume| %>
+  <tr>
+  <td><%= resume.id%></td>
+  <td><%= resume.user.first_name %></td>
+  <td><%= link_to "edit",edit_resume_path(:id => resume.id)  %></td>
+  <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%></td>
+<% end %>
+<>
+
