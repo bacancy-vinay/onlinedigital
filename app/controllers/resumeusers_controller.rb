@@ -3,20 +3,24 @@ class ResumeusersController < ApplicationController
 
   def new
     @resumeuser = Resumeuser.new
-    @resumeuser.resume_id =  params[:resume_id]
-  end
-  def create
-    @resumeuser = Resumeuser.new(resumeuser_params)
-    if @resumeuser.save!
-      redirect_to new_address_path(resumeuser_id: @resumeuser.id)
-    else
-      render 'new'
-    end
   end
 
   def index
     @resumeuser =  Resumeuser.all
   end
+
+  def create
+    @resumeuser = Resumeuser.new(resumeuser_params)
+    @resumeuser.resume_id = params[:resume_id]
+    byebug
+    if @resumeuser.save!
+      byebug
+      redirect_to new_resume_address_path(resumeuser_id: @resumeuser.id)
+    else
+      render 'new'
+    end
+  end
+
 
   def show
   end
@@ -33,7 +37,7 @@ class ResumeusersController < ApplicationController
   
   def destroy
     @resumeuser.destroy
-    redirect_to resumeusers_path
+    redirect_to resume_resumeusers_path
   end
 
   private

@@ -1,6 +1,13 @@
-
-<h1>Edit Resume</h1>
+<center><h1>Edit Resume</h1></center>
 
 <div class="btn btn-info">
-    <%= link_to "address", resume_addresses_path(@resume), :class => "btn" %> 
+    <%= link_to "Field choice", resume_fieldchoices_path(@resume), :class => "btn" %> 
+</div>
+
+<div class="btn btn-info">
+    <%= link_to "User Profile",resume_resumeusers_path(@resume), :class => "btn" %> 
+</div>
+
+<div class="btn btn-info">
+    <%= link_to "Address", resume_addresses_path(@resume), :class => "btn" %> 
 </div>

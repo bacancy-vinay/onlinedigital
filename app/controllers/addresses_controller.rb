@@ -9,8 +9,7 @@ class AddressesController < ApplicationController
   end
 
   def index
-    @address = Address.all
-    
+    @address = Address.all    
   end
 
   def create
@@ -24,9 +23,11 @@ class AddressesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
-  def show; end
+  def show
+  end
 
   def update
     if @address.update(address_params)

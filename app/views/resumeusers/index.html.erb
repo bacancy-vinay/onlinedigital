@@ -1,3 +1,6 @@
+<div class="btn btn-info">
+<%= link_to "create new ", new_resume_resumeuser_path, :class => "btn" %> 
+</div>
 
 <table class = "table">
 <thead class="thead-dark">
@@ -20,9 +23,9 @@
   <td><%= resumeuser.website %></td>
   <td><%= resumeuser.linkedin %></td>
   <td><%= resumeuser.birthdate %></td>
-  <td><%= link_to "show", resume_resumeuser_path(resumeuser) %></td>
-  <td><%= link_to "edit", edit_resume_resumeuser_path(resumeuser) %></td>
-  <td><%= link_to "delete", resume_resumeuser_path(resumeuser), method: :delete, data: {confirm:"Are you sure?"}%></td>
+  <td><%= link_to "show", resume_resumeusers_path(resumeuser) %></td>
+  <td><%= link_to "edit", edit_resume_resumeuser_path(:id => resumeuser.id) %></td>
+  <td><%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}%></td>
 <% end %>
 </tr>
 </table>

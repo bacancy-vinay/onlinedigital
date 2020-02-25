@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  
+
   get 'states/index'
   get 'cities/index'
   get 'resumes/sidebar'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :resumeusers 
     resources :addresses
     resources :businesses
+    resources :fieldchoices
   end
   resources :cities, only: :index
   resources :states, only: :index

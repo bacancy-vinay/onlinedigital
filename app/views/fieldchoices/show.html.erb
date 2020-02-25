@@ -1,0 +1,10 @@
+<h1>Fieldchoices#show</h1>
+<p>Find me in app/views/fieldchoices/show.html.erb</p>
+<%= @fieldchoice.main_field%>
+<%= @fieldchoice.sub_field%>
+<%= @fieldchoice.exp_year%>
+<%= @fieldchoice.exp_month%>
+
+
+<%= link_to "edit", edit_resume_fieldchoice_path(@fieldchoice) %>
+<%= link_to "delete", resume_fieldchoice_path(@fieldchoice), method: :delete, data: {confirm:"Are you sure?"}%>

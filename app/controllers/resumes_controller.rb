@@ -23,14 +23,13 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @address = @resume.address
+    @resumeuser = @resume.resumeuser
 
   end
 
   def edit
 
-
-    @addresses = @resume.addresses
+    @resumeuser = @resume.resumeuser
   end
 
   def update

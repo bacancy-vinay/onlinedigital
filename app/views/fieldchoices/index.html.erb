@@ -1,0 +1,27 @@
+
+<table class = "table">
+<thead class="thead-dark">
+  <tr>
+    <th>Carrier Field</th>
+    <th>job</th>
+    <th>Experience year</th>
+    <th>Experience month</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<% @fieldchoice.each do |fieldchoice| %>
+  <tr>
+  <td><%= fieldchoice.main_field%></td>
+  <td><%= fieldchoice.sub_field%></td>
+  <td><%= fieldchoice.exp_year%></td>
+  <td><%= fieldchoice.exp_month%></td>
+  <td><%= link_to "show", resume_fieldchoice_path(:id => fieldchoice.id) %></td>
+  <td><%= link_to "edit", edit_resume_fieldchoice_path(:id => fieldchoice.id) %></td>
+  <td><%= link_to "delete", resume_fieldchoice_path(:id => fieldchoice.id), method: :delete, data: {confirm:"Are you sure?"}%></td>
+<% end %>
+</tr>
+</table>
+<div class="btn btn-info">
+<%= link_to "create new ", new_resume_fieldchoice_path, :class => "btn" %> 
+</div>

@@ -1,13 +1,14 @@
-<div class="container">
-    <div class="row py-3">
-        <div class="col-3 order-2" id="sticky-sidebar">
-            <div class="sticky-top">
-                ...
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-2 px-0 " id="left">
+
+            <div class="list-group w-100">
+              <li class = nav-item ><%=  link_to "Home", root_path, class: "active"%></li>
+              <li class = list-group-item ><%= link_to "Profile ",resume_resumeusers_path(@resume),class: "active" %></li>
+              
             </div>
-        </div>
-        <div class="col" id="main">
-            <h1>Main Area</h1>
-            ...   
-        </div>
+
+        </aside>
+    
     </div>
 </div>
