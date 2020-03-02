@@ -1,0 +1,18 @@
+<table class = "table">
+<thead class="thead-dark">
+  <tr>
+    <th>Mobile</th>
+  <tr>
+</thead>
+<% @contact.each do |contact|%>
+  <tr>
+    <td><%= contact.contact_no%></td>
+    <td><%= link_to "show", resume_contact_path(:id => contact.id)%></td>
+    <td><%= link_to "edit", edit_resume_contact_path(:id => contact.id)%></td>
+    <td><%= link_to "delete", resume_contact_path(:id => contact.id), method: :delete, data: {confirm:"Are you sure?"} %></td>
+  </tr>
+<% end %>
+
+<div class="btn btn-info">
+<%= link_to "create new ", new_resume_contact_path, :class => "btn" %> 
+</div>

@@ -3,7 +3,6 @@
 # Resume controller
 class ResumesController < ApplicationController
   before_action :find_resume, only: %i[edit show destroy]
- 
   def new
     @resume = Resume.new
   end
@@ -23,17 +22,13 @@ class ResumesController < ApplicationController
   end
 
   def show
-    
     @resumeuser = @resume.resumeuser
-    @address = @resume.addresses
-    
-
+    @addresses = @resume.addresses
   end
 
   def edit
     @resumeuser = @resume.resumeuser
-    @address = @resume.addresses
-
+    @addresses = @resume.addresses
   end
 
   def update
@@ -51,7 +46,6 @@ class ResumesController < ApplicationController
 
   private
 
-  
   def find_resume
     @resume = Resume.find(params[:id])
   end

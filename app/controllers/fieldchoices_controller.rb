@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# fieldchoice controller
 class FieldchoicesController < ApplicationController
   before_action :find_fieldchoice, only: %i[edit show update destroy]
 
@@ -6,7 +9,7 @@ class FieldchoicesController < ApplicationController
   end
 
   def index
-    @fieldchoice = Fieldchoice.where(resume_id: params[:resume_id])    
+    @fieldchoice = Fieldchoice.where(resume_id: params[:resume_id])
   end
 
   def create
@@ -20,11 +23,9 @@ class FieldchoicesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def show
-  end
+  def show; end
 
   def update
     if @fieldchoice.update(fieldchoice_params)
@@ -48,5 +49,4 @@ class FieldchoicesController < ApplicationController
   def find_fieldchoice
     @fieldchoice = Fieldchoice.find(params[:id])
   end
-  
 end

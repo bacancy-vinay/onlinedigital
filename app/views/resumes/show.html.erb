@@ -4,3 +4,13 @@ email : <%= @resumeuser.email%><br/>
 website : <%= @resumeuser.website%><br/>
 linked-in : <%= @resumeuser.linkedin%><br/>
 --------------Address ------------------------<br/>
+<%if @addresses.any? %>
+  <% @addresses.each do |address|%>
+    <%= address.address1%><br/>
+    <%= address.address2%><br/>
+    <%= address.city%><br/>
+    <%= address.state%><br/>
+    <%= address.country%><br/>
+    <%= address.pincode%><br/><br/>
+  <% end %>
+<%end%>

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# ResumeUser controller for basic details
 class ResumeusersController < ApplicationController
   before_action :find_resumeuser, only: %i[edit show update destroy]
 
@@ -6,26 +9,24 @@ class ResumeusersController < ApplicationController
   end
 
   def index
-    @resumeuser =  Resumeuser.all
+    @resumeuser = Resumeuser.where(resume_id: params[:resume_id])
   end
 
   def create
     @resumeuser = Resumeuser.new(resumeuser_params)
     @resumeuser.resume_id = params[:resume_id]
-    
+
     if @resumeuser.save!
-      redirect_to new_resume_address_path(resumeuser_id: @resumeuser.id)
+      redirect_to resume_resumeusers_path
     else
       render 'new'
     end
   end
 
+  def show; end
 
-  def show
-  end
+  def edit; end
 
-  def edit
-  end
   def update
     if @resumeuser.update(resumeuser_params)
       redirect_to @resumeuser
@@ -33,7 +34,7 @@ class ResumeusersController < ApplicationController
       redirect_to 'edit'
     end
   end
-  
+
   def destroy
     @resumeuser.destroy
     redirect_to resume_resumeusers_path

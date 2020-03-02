@@ -1,12 +1,12 @@
 class Resume < ApplicationRecord
   belongs_to :user 
-  has_one :about
-  has_many :skill
-  has_many :educations
-  has_many :experiences 
-  has_many :interest 
+  has_one :about , dependent: :destroy
+  has_many :skill , dependent: :destroy
+  has_many :educations , dependent: :destroy
+  has_many :experiences , dependent: :destroy
+  has_many :interest , dependent: :destroy
   has_many :addresses , dependent: :destroy
-  has_one :fieldchoice
+  has_one :fieldchoice , dependent: :destroy
   has_one :resumeuser, dependent: :destroy
 
 end
