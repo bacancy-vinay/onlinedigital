@@ -6,7 +6,7 @@ class FieldchoicesController < ApplicationController
   end
 
   def index
-    @fieldchoice = Fieldchoice.all    
+    @fieldchoice = Fieldchoice.where(resume_id: params[:resume_id])    
   end
 
   def create
@@ -48,4 +48,5 @@ class FieldchoicesController < ApplicationController
   def find_fieldchoice
     @fieldchoice = Fieldchoice.find(params[:id])
   end
+  
 end

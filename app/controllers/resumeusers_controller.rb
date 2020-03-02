@@ -12,9 +12,8 @@ class ResumeusersController < ApplicationController
   def create
     @resumeuser = Resumeuser.new(resumeuser_params)
     @resumeuser.resume_id = params[:resume_id]
-    byebug
+    
     if @resumeuser.save!
-      byebug
       redirect_to new_resume_address_path(resumeuser_id: @resumeuser.id)
     else
       render 'new'

@@ -9,7 +9,7 @@ class AddressesController < ApplicationController
   end
 
   def index
-    @address = Address.all    
+    @address = Address.where(resume_id: params[:resume_id])
   end
 
   def create

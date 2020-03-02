@@ -1,6 +1,6 @@
 
 <%= form_with(method: "POST", model: @fieldchoice,:url => resume_fieldchoices_path) do |f|%>
-    <%= hidden_field_tag :resume_id, params[:resume_id] %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
 <div class="field">
   <p>Select your carrier field<p>
   <%= f.label :main_field %><br />
@@ -21,8 +21,6 @@
   <%= f.label :exp_month %><br />
   <%= f.select :exp_month, options_for_select((0..12).map {|i| "#{i}" }) %>
 </div>
-
-
 
 <div class="actions">
   <%= f.submit "Sign up" %>

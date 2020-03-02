@@ -9,7 +9,7 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resume = Resume.all
+    @resume = Resume.where(params[:resume_id])
   end
 
   def create
@@ -23,13 +23,17 @@ class ResumesController < ApplicationController
   end
 
   def show
+    
     @resumeuser = @resume.resumeuser
+    @address = @resume.addresses
+    
 
   end
 
   def edit
-
     @resumeuser = @resume.resumeuser
+    @address = @resume.addresses
+
   end
 
   def update
