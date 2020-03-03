@@ -1,9 +1,8 @@
-
 <%= form_with(method: "POST", model: @contact, :url=> resume_contacts_path) do |f|%>
-    <%= hidden_field_tag :resume_id, params[:resume_id] %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
 
-  <%= f.label :contact_no %><br />
-  <%= f.text_field :contact_no, autofocus: true, autocomplete: "contact_no" %>
+<%= f.label :contact_no %><br />
+<%= f.text_field :contact_no, autofocus: true, autocomplete: "contact_no" %>
 </div>
 
 <div class="actions">

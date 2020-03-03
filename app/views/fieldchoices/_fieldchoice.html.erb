@@ -1,10 +1,9 @@
-
-<%= form_with(method: "POST", model: @fieldchoice,:url => resume_fieldchoices_path) do |f|%>
+<%= form_with(model: [@resume, @fieldchoice]) do |f|%>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 <div class="field">
   <p>Select your carrier field<p>
-  <%= f.label :main_field %><br />
-  <%= f.select :main_field, Fieldchoice::MAIN_FIELD %>
+      <%= f.label :main_field %><br />
+      <%= f.select :main_field, Fieldchoice::MAIN_FIELD %>
 </div>
 
 <div class="field">

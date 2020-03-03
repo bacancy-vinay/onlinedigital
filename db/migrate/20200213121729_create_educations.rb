@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+# Education table
 class CreateEducations < ActiveRecord::Migration[5.2]
   def change
     create_table :educations do |t|
-      t.boolean:edu_type
+      t.boolean :edu_type
       t.string :name
       t.string :degree
       t.string :cource
@@ -10,7 +13,6 @@ class CreateEducations < ActiveRecord::Migration[5.2]
       t.string :result
       t.string :state
       t.references :resume, foreign_key: true
-
       t.timestamps
     end
   end

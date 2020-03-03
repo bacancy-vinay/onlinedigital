@@ -1,16 +1,16 @@
 --------------Resumeuser data-------------<br />
-<b><%= @resumeuser.first_name%><%= @resumeuser.last_name%><br/></b>
-email : <%= @resumeuser.email%><br/>
-website : <%= @resumeuser.website%><br/>
-linked-in : <%= @resumeuser.linkedin%><br/>
---------------Address ------------------------<br/>
+<b><%= @resumeuser.first_name%><%= @resumeuser.last_name%><br /></b>
+email : <%= @resumeuser.email%><br />
+website : <%= @resumeuser.website%><br />
+linked-in : <%= @resumeuser.linkedin%><br />
+--------------Address ------------------------<br />
 <%if @addresses.any? %>
-  <% @addresses.each do |address|%>
-    <%= address.address1%><br/>
-    <%= address.address2%><br/>
-    <%= address.city%><br/>
-    <%= address.state%><br/>
-    <%= address.country%><br/>
-    <%= address.pincode%><br/><br/>
-  <% end %>
+<% @addresses.each do |address|%>
+<%= address.address1%><br />
+<%= address.address2%><br />
+<%= address.city%><br />
+<%= address.state%><br />
+<%= address.country%><br />
+<%= address.pincode%><br /><br />
+<% end %>
 <%end%>

@@ -5,11 +5,12 @@ class FieldchoicesController < ApplicationController
   before_action :find_fieldchoice, only: %i[edit show update destroy]
 
   def new
-    @fieldchoice = Fieldchoice.new
+    @resume = Resume.find(params[:resume_id])
+    @fieldchoice = Fieldchoice.new(resume_id: @resume.id)
   end
 
   def index
-    @fieldchoice = Fieldchoice.where(resume_id: params[:resume_id])
+    @fieldchoices = Fieldchoice.where(resume_id: params[:resume_id])
   end
 
   def create
@@ -29,7 +30,7 @@ class FieldchoicesController < ApplicationController
 
   def update
     if @fieldchoice.update(fieldchoice_params)
-      redirect_to @fieldchoice
+      redirect_to resume_fieldchoice_path
     else
       redirect_to 'edit'
     end
@@ -47,6 +48,7 @@ class FieldchoicesController < ApplicationController
   end
 
   def find_fieldchoice
+    @resume = Resume.find(params[:resume_id])
     @fieldchoice = Fieldchoice.find(params[:id])
   end
 end
