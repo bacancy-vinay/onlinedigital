@@ -1,5 +1,5 @@
 <%= form_with(method: "post", model:@resumeuser, :url => resume_resumeusers_path )do |f|%>
-  <%= hidden_field_tag :resume_id, params[:resume_id] %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <div class="field">
   <%= f.label :prefix %><br />
@@ -31,12 +31,11 @@
 </div>
 
 <div class="field">
-<%= f.label :birthdate %><br />
-<%= f.date_field :birthdate, autofocus: true, autocomplete: "birthdate" %>
+  <%= f.label :birthdate %><br />
+  <%= f.date_field :birthdate, autofocus: true, autocomplete: "birthdate" %>
 </div>
 
 <div class="actions">
   <%= f.submit "Sign up" %>
 </div>
 <%end%>
-

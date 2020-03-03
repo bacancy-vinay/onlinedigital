@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Business table
 class CreateBusinesses < ActiveRecord::Migration[5.2]
   def change
     create_table :businesses do |t|

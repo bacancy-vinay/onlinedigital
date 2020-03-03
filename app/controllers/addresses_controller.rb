@@ -5,11 +5,12 @@ class AddressesController < ApplicationController
   before_action :find_address, only: %i[edit show update destroy]
 
   def new
-    @address = Address.new
+    @resume = Resume.find(params[:resume_id])
+    @address = Address.new(resume_id: @resume.id)
   end
 
   def index
-    @address = Address.where(resume_id: params[:resume_id])
+    @addresses = Address.where(resume_id: params[:resume_id])
   end
 
   def create
@@ -29,7 +30,7 @@ class AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to @address
+      redirect_to resume_address_path
     else
       redirect_to 'edit'
     end
@@ -47,6 +48,7 @@ class AddressesController < ApplicationController
   end
 
   def find_address
+    @resume = Resume.find(params[:resume_id])
     @address = Address.find(params[:id])
   end
 end

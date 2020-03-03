@@ -4,10 +4,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-gem "rolify"
 gem 'devise'
 gem 'hirb'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
+gem 'rolify'
+
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
