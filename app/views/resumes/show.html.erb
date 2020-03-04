@@ -3,14 +3,34 @@
 email : <%= @resumeuser.email%><br />
 website : <%= @resumeuser.website%><br />
 linked-in : <%= @resumeuser.linkedin%><br />
+<% if @contacts.any? %>
+<% @contacts.each do |contact|%>
+<%= contact.contact_no%>
+<% end %>
+<% end %> <br />
 --------------Address ------------------------<br />
-<%if @addresses.any? %>
+<% if @addresses.any? %>
 <% @addresses.each do |address|%>
 <%= address.address1%><br />
 <%= address.address2%><br />
 <%= address.city%><br />
-<%= address.state%><br />
-<%= address.country%><br />
+<%= CS.states(address.country.to_sym)[address.state.to_sym] %><br />
+<%= CS.countries[address.country.to_sym]%><br />
 <%= address.pincode%><br /><br />
 <% end %>
-<%end%>
+<% end %><br />
+------------------Eduations------------------<br />
+<% if @educations.any? %>
+<% @educations.each do |education|%>
+<%= education.name%>
+<%= CS.countries[education.country.to_sym]%>
+<%= CS.states(education.country.to_sym)[education.state.to_sym] %>
+<%= education.city %><br/>
+<%= education.board%><br/>
+<%= education.graduation_status%><br />
+<%= education.pass_year%><br />
+<%= education.degree%><br />
+<%= education.cource%><br />
+<%= education.result%><br />
+<% end %>
+<% end %>

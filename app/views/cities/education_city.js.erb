@@ -1,0 +1,5 @@
+var edu_city = document.getElementById("education_city");
+
+<% @edu_cities.each do |c| %>
+edu_city.options[edu_city.options.length] = new Option('<%= c%>');
+<% end %>

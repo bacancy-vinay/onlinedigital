@@ -14,7 +14,7 @@
       <th>Birthdate</th>
     </tr>
   </thead>
-  <% @resumeuser.each do |resumeuser| %>
+  <% @resumeusers.each do |resumeuser| %>
   <tr>
     <td><%= resumeuser.prefix%></td>
     <td><%= resumeuser.first_name %></td>
@@ -23,7 +23,7 @@
     <td><%= resumeuser.website %></td>
     <td><%= resumeuser.linkedin %></td>
     <td><%= resumeuser.birthdate %></td>
-    <td><%= link_to "show", resume_resumeusers_path(resumeuser) %></td>
+    <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id) %></td>
     <td><%= link_to "edit", edit_resume_resumeuser_path(:id => resumeuser.id) %></td>
     <td>
       <%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}%>

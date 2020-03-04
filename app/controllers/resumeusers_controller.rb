@@ -5,11 +5,12 @@ class ResumeusersController < ApplicationController
   before_action :find_resumeuser, only: %i[edit show update destroy]
 
   def new
-    @resumeuser = Resumeuser.new
+    @resume = Resume.find(params[:resume_id])
+    @resumeuser = Resumeuser.new(resume_id: @resume.id)
   end
 
   def index
-    @resumeuser = Resumeuser.where(resume_id: params[:resume_id])
+    @resumeusers = Resumeuser.where(resume_id: params[:resume_id])
   end
 
   def create
@@ -29,7 +30,7 @@ class ResumeusersController < ApplicationController
 
   def update
     if @resumeuser.update(resumeuser_params)
-      redirect_to @resumeuser
+      redirect_to resume_resumeuser_path
     else
       redirect_to 'edit'
     end
@@ -47,6 +48,7 @@ class ResumeusersController < ApplicationController
   end
 
   def find_resumeuser
+    @resume = Resume.find(params[:resume_id])
     @resumeuser = Resumeuser.find(params[:id])
   end
 end

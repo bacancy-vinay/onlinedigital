@@ -2,7 +2,11 @@
 
 # state dropdown
 class StatesController < ApplicationController
-  def index
+  def address_state
     @states = CS.states(params[:country])
+  end
+
+  def education_state
+    @edu_states = CS.states(params[:country])
   end
 end

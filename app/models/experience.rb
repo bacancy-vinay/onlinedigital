@@ -3,4 +3,6 @@
 # Experience Model
 class Experience < ApplicationRecord
   belongs_to :resume
+
+  EXPTYPE = ['Internship','Job']
 end

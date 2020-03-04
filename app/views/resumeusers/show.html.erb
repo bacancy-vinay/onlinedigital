@@ -6,5 +6,5 @@
 <%= @resumeuser.website %>
 <%= @resumeuser.linkedin %>
 <%= @resumeuser.birthdate %>
-<%= link_to "edit", edit_resume_resumeuser_path(@resumeuser) %>
-<%= link_to "delete", resume_resumeuser_path(@resumeuser), method: :delete, data: {confirm:"Are you sure?"}%>
+<%= link_to "edit", edit_resume_resumeuser_path(@resume,@resumeuser) %>
+<%= link_to "delete", resume_resumeuser_path(@resume,@resumeuser), method: :delete, data: {confirm:"Are you sure?"}%>

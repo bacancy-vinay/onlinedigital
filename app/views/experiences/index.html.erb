@@ -1,0 +1,38 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Board</th>
+      <th>Degree</th>
+      <th>Cource</th>
+      <th>status</th>
+      <th>Pass Year</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Result</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @experiences.each do |experience| %>
+  <tr>
+    <td><%= experience.exp_type %></td>
+    <td><%= experience.name %></td>
+    <td><%= experience.start_date %></td>
+    <td><%= experience.end_date %></td>
+    <td><%= experience.country %></td>
+    <td><%= experience.state %></td>
+    <td><%= experience.city %></td>
+    <td><%= experience.info %></td>
+    <td><%= link_to "show", resume_experience_path(:id => experience.id) %></td>
+    <td><%= link_to "edit", edit_resume_experience_path(:id => experience.id) %></td>
+    <td><%= link_to "delete", resume_experience_path(:id => experience.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_experience_path, :class => "btn" %>
+</div>

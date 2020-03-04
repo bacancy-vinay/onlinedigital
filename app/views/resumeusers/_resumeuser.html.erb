@@ -1,4 +1,4 @@
-<%= form_with(method: "post", model:@resumeuser, :url => resume_resumeusers_path )do |f|%>
+<%= form_with(model: [@resume, @resumeuser])do |f|%>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <div class="field">

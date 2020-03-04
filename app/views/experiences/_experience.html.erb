@@ -1,20 +1,31 @@
-<%= form_with(model: [@resume, @address]) do |f|%>
+<%= form_with(model: [@resume, @experience]) do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <div class="field">
-<%= f.label :address1 %><br />
-<%= f.text_field :address1, autofocus: true, autocomplete: "address1" %>
+<%= f.label :exp_type %> 
+<%= f.select(:exp_type, Experience::EXPTYPE) %>
 </div>
 
 <div class="field">
-  <%= f.label :address2 %><br />
-  <%= f.text_field :address2, autofocus: true, autocomplete: "address2" %>
+<%= f.label :name %> 
+<%= f.text_field :name, autofocus:true, autocomplete: "name" %>
+</div>
+
+<div class="field">
+<%= f.label :start_date %> 
+<%= f.date_field :start_date, autofocus:true, autocomplete: "start_date" %>
+</div>
+
+<div class="field">
+<%= f.label :end_date %> 
+<%= f.date_field :end_date, autofocus:true, autocomplete: "end_date" %>
 </div>
 
 <div class="field">
   <%= f.label :county %><br />
   <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] } ) %>
 </div>
+
 <div class="field">
   <%= f.label :state %><br />
   <%= f.select :state, options_for_select([])%>
@@ -26,10 +37,9 @@
 </div>
 
 <div class="field">
-  <%= f.label :pincode %><br />
-  <%= f.text_field :pincode, autofocus: true, autocomplete: "pincode"%>
+<%= f.label :info %> 
+<%= f.text_area :result, autofocus:true, autocomplete: "info" %>
 </div>
-
 <div class="actions">
   <%= f.submit "Sign up" %>
 </div>

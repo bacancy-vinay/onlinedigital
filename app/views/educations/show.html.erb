@@ -1,0 +1,12 @@
+<%= @education.name %>
+<%= @education.board %>
+<%= @education.degree %>
+<%= @education.cource %>
+<%= @education.graduation_status%>
+<%= @education.pass_year %>
+<%= @education.country %>
+<%= @education.state %>
+<%= @education.city %>
+<%= @education.result %>
+<%= link_to "edit", edit_resume_education_path(@resume,@education) %>
+<%= link_to "delete", resume_education_path(@resume,@education), method: :delete, data: {confirm:"Are you sure?"}%>

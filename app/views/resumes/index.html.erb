@@ -3,7 +3,7 @@
   <%= link_to "create new ", new_resume_path, :class => "btn" %>
 </div>
 <br />
-<% @resume.each do |resume| %>
+<% @resumes.each do |resume| %>
 <tr>
   <td><%= resume.id%></td>
   <td><%= resume.user.first_name %></td>

@@ -6,5 +6,5 @@
 <%= @fieldchoice.exp_month%>
 
 
-<%= link_to "edit", edit_resume_fieldchoice_path(@fieldchoice) %>
-<%= link_to "delete", resume_fieldchoice_path(@fieldchoice), method: :delete, data: {confirm:"Are you sure?"}%>
+<%= link_to "edit", edit_resume_fieldchoice_path(@resume,@fieldchoice) %>
+<%= link_to "delete", resume_fieldchoice_path(@resume,@fieldchoice), method: :delete, data: {confirm:"Are you sure?"}%>

@@ -1,5 +1,7 @@
 {
   "name": "digital_profile",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "toggle-class": "^0.0.0"
+  }
 }

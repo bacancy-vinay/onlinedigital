@@ -1,4 +1,4 @@
-<%= form_with(method: "POST", model: @contact, :url=> resume_contacts_path) do |f|%>
+<%= form_with(model: [@resume,@contact]) do |f|%>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <%= f.label :contact_no %><br />

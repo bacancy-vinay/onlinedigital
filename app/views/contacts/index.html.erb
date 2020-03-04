@@ -4,7 +4,7 @@
       <th>Mobile</th>
     <tr>
   </thead>
-  <% @contact.each do |contact|%>
+  <% @contacts.each do |contact|%>
   <tr>
     <td><%= contact.contact_no%></td>
     <td><%= link_to "show", resume_contact_path(:id => contact.id)%></td>

@@ -2,13 +2,13 @@
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
 ruby '2.5.1'
 gem 'devise'
 gem 'hirb'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-ui-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rolify'
-
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -29,7 +29,6 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'city-state', '~> 0.0.13'
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

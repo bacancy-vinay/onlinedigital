@@ -5,18 +5,19 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: %i[edit show update destroy]
 
   def new
-    @contact = Contact.new
+    @resume =  Resume.find(params[:resume_id])
+    @contact = Contact.new(resume_id: @resume.id)
   end
 
   def index
-    @contact = Contact.all
+    @contacts = Contact.where(resume_id: params[:resume_id])
   end
 
   def create
     @contact = Contact.new(contact_params)
     @contact.resume_id = params[:resume_id]
     if @contact.save!
-      redirect_to @contact
+      redirect_to resume_contacts_path
     else
       redirect_to 'new'
     end
@@ -28,7 +29,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update(contact_params)
-      redirect_to @resume
+      redirect_to resume_contact_path
     else
       resirect_to 'edit'
     end
@@ -46,6 +47,8 @@ class ContactsController < ApplicationController
   end
 
   def find_contact
+    
+    @resume = Resume.find(params[:resume_id])
     @contact = Contact.find(params[:id])
   end
 end

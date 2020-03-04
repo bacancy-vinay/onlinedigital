@@ -2,7 +2,11 @@
 
 # cities-dropdown Controller
 class CitiesController < ApplicationController
-  def index
+  def address_city
     @cities = CS.get(params[:country], params[:state])
+  end
+
+  def education_city
+    @edu_cities = CS.get(params[:country], params[:state])
   end
 end

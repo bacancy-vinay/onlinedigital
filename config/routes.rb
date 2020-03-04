@@ -1,22 +1,26 @@
+# frozen_string_literal: true
+
+# All routes 
 Rails.application.routes.draw do
- 
-  get 'states/index'
-  get 'cities/index'
+  
+  get 'states/address_state'
+  get 'cities/address_city'
+  get 'states/education_state'
+  get 'cities/education_city'
   get 'resumes/sidebar'
   devise_for :users
   resources :resumes do
-    resources :resumeusers 
+    resources :resumeusers
     resources :addresses
     resources :businesses
     resources :fieldchoices
-    resources :contacts
+    resources :contacts 
+    resources :educations
+    resources :experiences
   end
-  resources :cities, only: :index
-  resources :states, only: :index
-
+  resources :cities, only: %i['address_city','education_city']
+  resources :states, only: %i['address_state','education_state']
 
   root 'dashboards#index'
-
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

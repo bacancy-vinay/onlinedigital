@@ -5,5 +5,5 @@
 <%= @address.city%>
 <%= @address.pincode%>
 
-<%= link_to "edit", edit_resume_address_path(@address) %>
-<%= link_to "delete", resume_address_path(@address), method: :delete, data: {confirm:"Are you sure?"}%>
+<%= link_to "edit", edit_resume_address_path(@resume,@address) %>
+<%= link_to "delete", resume_address_path(@resume,@address), method: :delete, data: {confirm:"Are you sure?"}%>
