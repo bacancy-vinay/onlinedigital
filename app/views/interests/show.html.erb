@@ -1,0 +1,4 @@
+<h1>interest#show</h1>
+<%= @interest.interest_list %>
+<%= link_to "edit", edit_resume_about_path(@resume,@interest) %>
+<%= link_to "delete", resume_about_path(@resume,@interest), method: :delete, data: {confirm:"Are you sure?"}%>

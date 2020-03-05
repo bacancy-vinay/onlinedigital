@@ -1,7 +1,6 @@
 <div class="btn btn-info">
   <%= link_to "create new ", new_resume_resumeuser_path, :class => "btn" %>
 </div>
-
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -30,6 +29,6 @@
     <td>
       <%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}%>
     </td>
-    <% end %>s
+    <% end %>
   </tr>
 </table>

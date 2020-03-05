@@ -1,0 +1,12 @@
+<%= form_with(model: [@resume, @interest]) do |f| %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
+
+<div class="field">
+<%= f.label :interest_list %> 
+<%= f.text_field :interest_list, autofocus:true, autocomplete: "interest_list" %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Submit" %>
+</div>
+<% end %>

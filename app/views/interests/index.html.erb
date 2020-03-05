@@ -1,0 +1,25 @@
+<h1>Interests#index</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>interests</th>
+      <th>level</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @interests.each do |interest| %>
+  <tr>
+    <td><%= interest.interest_list %></td>
+    <td><%= link_to "show", resume_interest_path(:id => interest.id) %></td>
+    <td><%= link_to "edit", edit_resume_interest_path(:id => interest.id) %></td>
+    <td><%= link_to "delete", resume_interest_path(:id => interest.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_interest_path, :class => "btn" %>
+</div>
+
