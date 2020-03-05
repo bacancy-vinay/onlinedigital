@@ -6,7 +6,7 @@
 <% @resumes.each do |resume| %>
 <tr>
   <td><%= resume.id%></td>
-  <td><%= resume.user.first_name %></td>
+  <td><%= resume.user.first_name + resume.user.last_name%></td>
   <td><%= link_to "edit",edit_resume_path(:id => resume.id)  %></td>
   <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%></td>
   <br />

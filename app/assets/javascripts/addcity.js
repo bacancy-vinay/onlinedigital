@@ -17,8 +17,4 @@ document.addEventListener("turbolinks:load", function () {
       type: "GET"
     })
   })
-  
- 
-
-  
 })

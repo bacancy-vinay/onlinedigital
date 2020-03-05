@@ -1,0 +1,5 @@
+<h1>Abouts#show</h1>
+<%= @about.profile %>
+<%= @about.info %>
+<%= link_to "edit", edit_resume_about_path(@resume,@about) %>
+<%= link_to "delete", resume_about_path(@resume,@about), method: :delete, data: {confirm:"Are you sure?"}%>

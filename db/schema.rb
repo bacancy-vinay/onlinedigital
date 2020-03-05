@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_03_02_072735) do
 
   create_table "abouts", force: :cascade do |t|
-    t.string "info", default: "", null: false
+    t.string "profile"
+    t.text "info"
     t.integer "resume_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,10 +38,11 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
-    t.string "info"
+    t.text "info"
     t.string "email"
     t.string "website"
     t.string "business_pan"
+    t.integer "mobile"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -114,13 +116,14 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
   end
 
   create_table "resumeusers", force: :cascade do |t|
-    t.string "prefix", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "website", default: "", null: false
-    t.string "linkedin", default: "", null: false
-    t.date "birthdate", null: false
+    t.string "prefix"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "mobile"
+    t.string "website"
+    t.string "linkedin"
+    t.date "birthdate"
     t.integer "resume_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -140,6 +143,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
 
   create_table "skills", force: :cascade do |t|
     t.string "skill_list"
+    t.string "rating"
     t.integer "resume_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -154,8 +158,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.integer "mobile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

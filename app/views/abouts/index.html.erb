@@ -1,0 +1,24 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Profile</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @abouts.each do |about| %>
+  <tr>
+    <td><%= about.profile %></td>
+    <td><%= about.info %></td>
+    <td><%= link_to "show", resume_about_path(:id => about.id) %></td>
+    <td><%= link_to "edit", edit_resume_about_path(:id => about.id) %></td>
+    <td><%= link_to "delete", resume_about_path(:id => about.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_about_path, :class => "btn" %>
+</div>

@@ -3,11 +3,7 @@
 email : <%= @resumeuser.email%><br />
 website : <%= @resumeuser.website%><br />
 linked-in : <%= @resumeuser.linkedin%><br />
-<% if @contacts.any? %>
-<% @contacts.each do |contact|%>
-<%= contact.contact_no%>
-<% end %>
-<% end %> <br />
+movbile : <%= @resumeuser.mobile%>
 --------------Address ------------------------<br />
 <% if @addresses.any? %>
 <% @addresses.each do |address|%>

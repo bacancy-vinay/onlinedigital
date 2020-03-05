@@ -9,4 +9,8 @@ class CitiesController < ApplicationController
   def education_city
     @edu_cities = CS.get(params[:country], params[:state])
   end
+
+  def experience_city
+    @exp_cities = CS.get(params[:country], params[:state])
+  end
 end

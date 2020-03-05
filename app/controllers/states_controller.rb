@@ -9,4 +9,8 @@ class StatesController < ApplicationController
   def education_state
     @edu_states = CS.states(params[:country])
   end
+
+  def experience_state
+    @exp_states = CS.states(params[:country])
+  end
 end

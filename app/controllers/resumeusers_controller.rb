@@ -44,7 +44,7 @@ class ResumeusersController < ApplicationController
   private
 
   def resumeuser_params
-    params.require(:resumeuser).permit(:prefix, :first_name, :last_name, :email, :website, :linkedin, :birthdate, :resume_id)
+    params.require(:resumeuser).permit(:prefix, :first_name, :last_name, :email, :mobile, :website, :linkedin, :birthdate, :resume_id)
   end
 
   def find_resumeuser

@@ -1,0 +1,5 @@
+<h1>Skill#show</h1>
+<%= @skill.skill_list %>
+<%= @skill.rating %>
+<%= link_to "edit", edit_resume_about_path(@resume,@skill) %>
+<%= link_to "delete", resume_about_path(@resume,@skill), method: :delete, data: {confirm:"Are you sure?"}%>

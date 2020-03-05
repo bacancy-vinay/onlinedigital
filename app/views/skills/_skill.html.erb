@@ -1,0 +1,17 @@
+<%= form_with(model: [@resume, @skill]) do |f| %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
+
+<div class="field">
+<%= f.label :skill_list %> 
+<%= f.text_field :skill_list, autofocus:true, autocomplete: "skill_list" %>
+</div>
+
+<div class="field">
+<%= f.label :rating %> 
+<%= f.select(:rating , Skill::RATING_LEVEL) %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
+<% end %>

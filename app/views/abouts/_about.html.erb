@@ -1,0 +1,17 @@
+<%= form_with(model: [@resume, @about]) do |f| %>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
+
+<div class="field">
+<%= f.label :profile %> 
+<%= f.text_field :profile, autofocus:true, autocomplete: "profile" %>
+</div>
+
+<div class="field">
+<%= f.label :info %> 
+<%= f.text_area :info, autofocus:true, autocomplete: "info" %>
+</div>
+
+<div class="actions">
+  <%= f.submit "Sign up" %>
+</div>
+<% end %>

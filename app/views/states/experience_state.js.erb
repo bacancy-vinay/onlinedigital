@@ -1,0 +1,8 @@
+//Experience state view  file
+var exp_state = document.getElementById("experience_state");
+
+
+// Add the states Education
+<% @exp_states.each do |s| %>
+exp_state.options[exp_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
+<% end %>
