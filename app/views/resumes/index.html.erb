@@ -1,14 +1,22 @@
-<br />
+<table class="table">
+<% if current_user.has_role? :admin %>
+<% else %>
 <div class="btn btn-info">
   <%= link_to "create new ", new_resume_path, :class => "btn" %>
 </div>
+<% end %>
+  <thead class = "thead-dark">
+    <th>NO</th>
+    <th>Username</th>
+    <th>Remove</th>
+  </thead>
 <br />
 <% @resumes.each do |resume| %>
 <tr>
   <td><%= resume.id%></td>
   <td><%= resume.user.first_name + resume.user.last_name%></td>
-  <td><%= link_to "edit",edit_resume_path(:id => resume.id)  %></td>
   <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%></td>
   <br />
 </tr>
 <% end %>
+</table>

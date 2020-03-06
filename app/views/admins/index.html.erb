@@ -1,0 +1,33 @@
+<center><h1>Manage Users</h1>
+=====================<center>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @users.each do |user| %>
+<% if user.has_role? :admin %>
+<% else %>
+
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.mobile %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to "edit", edit_user_registration_path(user)%></td>
+    <td><%= link_to "delete", user_registration_path(user)%>
+  </tr>
+  <% end %>
+
+<% end %>
+</table>
+

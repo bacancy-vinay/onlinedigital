@@ -14,9 +14,8 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
-    
+
     if @business.save!
-      byebug
       redirect_to businesses_path
     else
       render 'new'
