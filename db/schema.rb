@@ -37,12 +37,24 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.integer "pincode"
+    t.string "owner_name"
+    t.string "owner_post"
     t.text "info"
     t.string "email"
     t.string "website"
+    t.string "facebook"
+    t.string "instagram"
     t.string "business_pan"
-    t.integer "mobile"
+    t.integer "contact_no"
+    t.string "add_info_title"
+    t.string "add_info_info"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

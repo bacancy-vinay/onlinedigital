@@ -3,7 +3,10 @@
 email : <%= @resumeuser.email%><br />
 website : <%= @resumeuser.website%><br />
 linked-in : <%= @resumeuser.linkedin%><br />
-movbile : <%= @resumeuser.mobile%>
+movbile : <%= @resumeuser.mobile%><br/>
+---------------objective----------------------<br/>
+<%= @about.profile %><br/>
+<%= @about.info %><br/>
 --------------Address ------------------------<br />
 <% if @addresses.any? %>
 <% @addresses.each do |address|%>
@@ -12,7 +15,7 @@ movbile : <%= @resumeuser.mobile%>
 <%= address.city%><br />
 <%= CS.states(address.country.to_sym)[address.state.to_sym] %><br />
 <%= CS.countries[address.country.to_sym]%><br />
-<%= address.pincode%><br /><br />
+<%= address.pincode%><br />
 <% end %>
 <% end %><br />
 ------------------Eduations------------------<br />
@@ -28,5 +31,30 @@ movbile : <%= @resumeuser.mobile%>
 <%= education.degree%><br />
 <%= education.cource%><br />
 <%= education.result%><br />
+<% end %>
+<% end %><br/>
+-----------------Experience-------------------------<br/>
+<% if @experiences.any? %>
+<% @experiences.each do |experience|%>
+<%= experience.exp_type %>
+<%= experience.name %>
+<%= experience.start_date %>
+<%= experience.end_date %>
+<%= experience.state%>
+<%= experience.city %>
+<%= experience.info %>
+<% end %>
+<% end %><br />
+-----------------skills-------------------------<br/>
+<% if @skills.any? %>
+<% @skills.each do |skill|%>
+<%= skill.skill_list%>
+<%= skill.rating%>
+<% end %>
+<% end %><br/>
+---------------Interest----------------------<br/>
+<% if @interests.any? %>
+<% @interests.each do |interest| %>
+<%= interest.interest_list %>
 <% end %>
 <% end %>

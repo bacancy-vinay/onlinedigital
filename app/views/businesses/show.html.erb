@@ -1,0 +1,20 @@
+<h1>@businesss#show</h1>
+    <%= @business.title %>
+    <%= @business.owner_name %>
+    <%= @business.owner_post %>
+    <%= @business.info %>
+    <%= @business.address1 %>
+    <%= @business.address2 %>
+    <%= @business.city %>
+    <%= @business.state %>
+    <%= @business.country %>
+    <%= @business.pincode %>
+    <%= @business.email %>
+    <%= @business.facebook %>
+    <%= @business.instagram %>
+    <%= @business.business_pan %>
+    <%= @business.contact_no %>
+    <%= @business.add_info_title %>
+    <%= @business.add_info_info %>  
+<%= link_to "edit", edit_business_path(@business) %>
+<%= link_to "delete", business_path(@business), method: :delete, data: {confirm:"Are you sure?"}%>

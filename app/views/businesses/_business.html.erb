@@ -1,0 +1,96 @@
+<%= form_with(model: @business) do |f| %>
+
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus:true, autocomplete: "title" %>
+</div>
+
+<div class="field">
+  <%= f.label :owner_name %>
+  <%= f.text_field :owner_name, autofocus:true, autocomplete: "owner_name" %>
+</div>
+
+<div class="field">
+  <%= f.label :owner_post %>
+  <%= f.text_field :owner_post, autofocus:true, autocomplete: "owner_post" %>
+</div>
+
+<div class="field">
+  <%= f.label :info %>
+  <%= f.text_area :info, autofocus:true, autocomplete: "info" %>
+</div>
+
+<div class="field">
+  <%= f.label :address1 %>
+  <%= f.text_field :address1, autofocus:true, autocomplete: "address1" %>
+</div>
+
+<div class="field">
+  <%= f.label :address2 %>
+  <%= f.text_field :address2, autofocus:true, autocomplete: "address2" %>
+</div>
+
+<div class="field">
+  <%= f.label :city %>
+  <%= f.text_field :city, autofocus:true, autocomplete: "city" %>
+</div>
+
+<div class="field">
+  <%= f.label :state %>
+  <%= f.text_field :state, autofocus:true, autocomplete: "state" %>
+</div>
+
+<div class="field">
+  <%= f.label :country %>
+  <%= f.text_field :country, autofocus:true, autocomplete: "country" %>
+</div>
+
+<div class="field">
+  <%= f.label :pincode %>
+  <%= f.text_field :pincode, autofocus:true, autocomplete: "pincode" %>
+</div>
+
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus:true, autocomplete: "email" %>
+</div>
+
+<div class="field">
+  <%= f.label :website %>
+  <%= f.text_field :website, autofocus:true, autocomplete: "website"%>
+</div>
+
+<div class="field">
+  <%= f.label :facebook %>
+  <%= f.text_field :facebook, autofocus:true, autocomplete: "facebook"%>
+</div>
+
+<div class="field">
+  <%= f.label :instagram %>
+  <%= f.text_field :instagram, autofocus:true, autocomplete: "instagram"%>
+</div>
+
+
+<div class="field">
+  <%= f.label :business_pan %>
+  <%= f.text_field :business_pan, autofocus:true, autocomplete: "business_pan" %>
+</div>
+
+<div class="field">
+  <%= f.label :contact_no %>
+  <%= f.text_field :contact_no, autofocus:true, autocomplete: "contact_no" %>
+</div>
+
+<div class="field">
+  <%= f.label :add_info_title %>
+  <%= f.text_field :add_info_title, autofocus:true, autocomplete: "add_info_title" %>
+</div>
+
+<div class="field">
+  <%= f.label :add_info_info %>
+  <%= f.text_field :add_info_info, autofocus:true, autocomplete: "add_info_info" %>
+</div>
+<div class="actions">
+  <%= f.submit "Submit" %>
+</div>
+<% end %>

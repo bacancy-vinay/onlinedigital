@@ -22,15 +22,23 @@ class ResumesController < ApplicationController
   end
 
   def show
+    @about = @resume.about
     @resumeuser = @resume.resumeuser
     @addresses = @resume.addresses
     @educations = @resume.educations
+    @experiences = @resume.experiences
+    @skills = @resume.skill
+    @interests = @resume.interests
   end
 
   def edit
+    @about = @resume.about
     @resumeuser = @resume.resumeuser
     @addresses = @resume.addresses
     @educations = @resume.educations
+    @experiences = @resume.experiences
+    @skills = @resume.skill
+    @interests = @resume.interests
   end
 
   def update

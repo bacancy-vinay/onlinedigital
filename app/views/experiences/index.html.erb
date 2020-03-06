@@ -1,16 +1,15 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th>Name</th>
-      <th>Board</th>
-      <th>Degree</th>
-      <th>Cource</th>
-      <th>status</th>
+      <th>EXP IN</th>
+      <th>name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>country</th>
       <th>Pass Year</th>
-      <th>Country</th>
-      <th>State</th>
-      <th>City</th>
-      <th>Result</th>
+      <th>state</th>
+      <th>city</th>
+      <th>info</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,8 +21,8 @@
     <td><%= experience.name %></td>
     <td><%= experience.start_date %></td>
     <td><%= experience.end_date %></td>
-    <td><%= experience.country %></td>
-    <td><%= experience.state %></td>
+    <td><%= experience.country%></td>
+    <td><%= experience.state %>
     <td><%= experience.city %></td>
     <td><%= experience.info %></td>
     <td><%= link_to "show", resume_experience_path(:id => experience.id) %></td>
