@@ -43,7 +43,7 @@ class InterestsController < ApplicationController
   private
 
   def interest_params
-    params.require(:interest).permit(:interest_list,:resume_id)
+    params.require(:interest).permit(:interest_list, :resume_id)
   end
 
   def find_interest

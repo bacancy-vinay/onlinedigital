@@ -2,7 +2,6 @@
 
 # All routes
 Rails.application.routes.draw do
-  get 'admins/index'
   get 'states/address_state'
   get 'cities/address_city'
   get 'states/education_state'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   get 'states/experience_state'
   get 'cities/experience_city'
   get 'resumes/sidebar'
+  resources :admins
   resources :dashboards
   devise_for :users
   resources :resumes do

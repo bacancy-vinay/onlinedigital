@@ -1,5 +1,4 @@
-<center><h1>Manage Users</h1>
-=====================<center>
+<center><h1>Manage Users</h1>=====================<center>
 
 <table class="table">
   <thead class="thead-dark">
@@ -14,9 +13,9 @@
     </tr>
   </thead>
 
-<% @users.each do |user| %>
-<% if user.has_role? :admin %>
-<% else %>
+  <% @users.each do |user| %>
+  <% if user.has_role? :admin %>
+  <% else %>
 
   <tr>
     <td><%= user.first_name %></td>
@@ -28,6 +27,16 @@
   </tr>
   <% end %>
 
-<% end %>
-</table>
+  <% end %>
 
+  <% @resumes.each do |resume| %>
+  <tr>
+    <td><%= resume.id%></td>
+    <td><%= resume.user.first_name + resume.user.last_name%></td>
+    <td><%= link_to "edit", edit_resume_path(:id=>resume.id) %></td>
+    <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%></td>
+    <td><%= link_to "show", resume_path(:id => resume.id) %>
+      <br />
+  </tr>
+  <% end %>
+</table>

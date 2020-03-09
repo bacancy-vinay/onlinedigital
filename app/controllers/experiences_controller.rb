@@ -43,7 +43,9 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:exp_type, :name, :start_date, :end_date, :counry, :state, :city, :info )
+    params.require(:experience).permit(:exp_type, :name, :start_date,
+                                       :end_date, :counry, :state, :city,
+                                       :info)
   end
 
   def find_experience

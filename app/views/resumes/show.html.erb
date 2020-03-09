@@ -1,60 +1,147 @@
---------------Resumeuser data-------------<br />
-<b><%= @resumeuser.first_name%><%= @resumeuser.last_name%><br /></b>
-email : <%= @resumeuser.email%><br />
-website : <%= @resumeuser.website%><br />
-linked-in : <%= @resumeuser.linkedin%><br />
-movbile : <%= @resumeuser.mobile%><br/>
----------------objective----------------------<br/>
-<%= @about.profile %><br/>
-<%= @about.info %><br/>
---------------Address ------------------------<br />
-<% if @addresses.any? %>
-<% @addresses.each do |address|%>
-<%= address.address1%><br />
-<%= address.address2%><br />
-<%= address.city%><br />
-<%= CS.states(address.country.to_sym)[address.state.to_sym] %><br />
-<%= CS.countries[address.country.to_sym]%><br />
-<%= address.pincode%><br />
-<% end %>
-<% end %><br />
-------------------Eduations------------------<br />
-<% if @educations.any? %>
-<% @educations.each do |education|%>
-<%= education.name%>
-<%= CS.countries[education.country.to_sym]%>
-<%= CS.states(education.country.to_sym)[education.state.to_sym] %>
-<%= education.city %><br/>
-<%= education.board%><br/>
-<%= education.graduation_status%><br />
-<%= education.pass_year%><br />
-<%= education.degree%><br />
-<%= education.cource%><br />
-<%= education.result%><br />
-<% end %>
-<% end %><br/>
------------------Experience-------------------------<br/>
-<% if @experiences.any? %>
-<% @experiences.each do |experience|%>
-<%= experience.exp_type %>
-<%= experience.name %>
-<%= experience.start_date %>
-<%= experience.end_date %>
-<%= experience.state%>
-<%= experience.city %>
-<%= experience.info %>
-<% end %>
-<% end %><br />
------------------skills-------------------------<br/>
-<% if @skills.any? %>
-<% @skills.each do |skill|%>
-<%= skill.skill_list%>
-<%= skill.rating%>
-<% end %>
-<% end %><br/>
----------------Interest----------------------<br/>
-<% if @interests.any? %>
-<% @interests.each do |interest| %>
-<%= interest.interest_list %>
-<% end %>
-<% end %>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>resume template</title>
+  <meta name="viewport" content="width=device-width" />
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag "resume_template1", media: "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body id="top">
+  <div id="cv" class="instaFade">
+    <div class="mainDetails">
+      <div id="headshot" class="quickFade">
+        <%# <img src="headshot.jpg" alt="Alan Smith" /> %>
+      </div>
+      <div id="name">
+        <h1 class="quickFade delayTwo"><%= @resumeuser.first_name%> <%= @resumeuser.last_name%></h1>
+        <h2 class="quickFade delayThree"><%= @about.profile %></h2>
+        <% if @addresses.any? %>
+        <% @addresses.each do |address|%>
+        <%= address.address1%>
+        <%= address.address2%><br />
+        <%= address.city%>
+        <%= CS.states(address.country.to_sym)[address.state.to_sym] %>
+        <%= CS.countries[address.country.to_sym]%>
+        <%= address.pincode%>
+        <% end %>
+        <% end %><br />
+
+      </div>
+
+      <div id="contactDetails" class="quickFade delayFour">
+        <ul>
+          <li>e: <%= @resumeuser.email%></li>
+          <li>m: <%= @resumeuser.mobile%></li>
+          <li>li: <%= @resumeuser.linkedin%></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="mainArea" class="quickFade delayFive">
+      <section>
+        <article>
+          <div class="sectionTitle">
+            <h1>Personal Profile</h1>
+          </div>
+          <div class="sectionContent">
+            <p><%= @about.info %></p>
+          </div>
+        </article>
+        <div class="clear"></div>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h1>Work Experience</h1>
+        </div>
+        <% if @experiences.any? %>
+        <% @experiences.each do |experience|%>
+        <div class="sectionContent">
+          <article>
+            <h2><%= experience.name %> <%= experience.exp_type %>
+            </h2>
+            <p class="subDetails"><%= experience.start_date %> - <%= experience.end_date %>
+              <%= experience.city %> <%= experience.state%></p>
+            <p><%= experience.info %>
+            </p>
+          </article>
+        </div>
+        <div class="clear"></div>
+        <% end %>
+        <% end %>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h1>Key Skills</h1>
+        </div>
+        <% if @skills.any? %>
+        <% @skills.each do |skill|%>
+        <div class="sectionContent">
+          <ul class="keySkills">
+            <li><%= skill.skill_list%>
+              <div id="rating">
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:<%= skill.rating %>%" aria-valuenow="<%= skill.rating %>" aria-valuemin="0"
+                  aria-valuemax="100" onload="myfunction()"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="clear"></div>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h1>Education</h1>
+        </div>
+        <% if @educations.any? %>
+        <% @educations.each do |education|%>
+        <div class="sectionContent">
+          <article>
+            <h2><%= education.name %>
+              <%= education.city %><br /> <%= education.board %><br />
+            </h2>
+            <p class="subDetails"> <%= education.degree%> <%= education.cource %></p>
+            <p> <%= education.graduation_status%> Pass year : <%= education.pass_year %><br />
+            </p>
+            <p>Result : <%= education.result %>
+            </p>
+          </article>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="clear"></div>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h1>Interest in </h1>
+        </div>
+        <% if @interests.any? %>
+        <% @interests.each do |interest|%>
+
+        <div class="sectionContent">
+          <ul class="keySkills">
+            <li><%= interest.interest_list%>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+
+        <% end %>
+
+        <div class="clear"></div>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>

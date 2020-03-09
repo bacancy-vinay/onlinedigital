@@ -76,6 +76,7 @@ GEM
       nokogiri (~> 1.8)
     city-state (0.0.13)
       rubyzip (~> 1.1)
+    cocoon (1.2.11)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     devise (4.7.1)
@@ -257,6 +258,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   city-state (~> 0.0.13)
+  cocoon
   devise
   font-awesome-rails
   hirb

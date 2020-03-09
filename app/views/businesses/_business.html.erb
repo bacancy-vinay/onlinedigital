@@ -14,6 +14,15 @@
   <%= f.label :owner_post %>
   <%= f.text_field :owner_post, autofocus:true, autocomplete: "owner_post" %>
 </div>
+<h3>Owners</h3>
+<div id='owners'>
+  <%=  f.fields_for :owners do |owner| %>
+  <%= render 'owner_fields', :f => owner %>
+  <% end %>
+  <div class='links'>
+    <%= link_to_add_association 'add owner', f, :owners %>
+  </div>
+</div>
 
 <div class="field">
   <%= f.label :info %>
@@ -50,6 +59,14 @@
   <%= f.text_field :pincode, autofocus:true, autocomplete: "pincode" %>
 </div>
 
+<div id='addresses'>
+  <%= f.fields_for :addresses do |address| %>
+  <%= render 'address_fields', :f => address%>
+  <% end %>
+  <div class='links'>
+    <%= link_to_add_association 'add address', f, :addresses%>
+  </div>
+</div>
 <div class="field">
   <%= f.label :email %>
   <%= f.email_field :email, autofocus:true, autocomplete: "email" %>

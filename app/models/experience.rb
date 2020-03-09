@@ -3,6 +3,5 @@
 # Experience Model
 class Experience < ApplicationRecord
   belongs_to :resume
-
-  EXPTYPE = ['Internship','Job']
+  EXPTYPE = %w[Internship Job].freeze
 end

@@ -9,7 +9,6 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Mobile</th>
-      <th>Website</th>
       <th>Linked-in</th>
       <th>Birthdate</th>
     </tr>
@@ -21,7 +20,7 @@
     <td><%= resumeuser.last_name %></td>
     <td><%= resumeuser.email %></td>
     <td><%= resumeuser.mobile%></td>
-    <td><%= resumeuser.website %></td>
+    <%# <td><%= resumeuser.website %></td> %>
     <td><%= resumeuser.linkedin %></td>
     <td><%= resumeuser.birthdate %></td>
     <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id) %></td>

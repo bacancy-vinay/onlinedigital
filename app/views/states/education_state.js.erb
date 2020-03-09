@@ -1,13 +1,6 @@
 //Education state view  file
 var edu_state = document.getElementById("education_state");
 
-// Clear the options in the select box
-while (state.firstChild) state.removeChild(state.firstChild);
-var placeholder = document.createElement("option");
-placeholder.text = "Choose a state";
-placeholder.value = "";
-education_state.appendChild(placeholder);
-
 // Add the states Education
 <% @edu_states.each do |s| %>
 edu_state.options[edu_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')

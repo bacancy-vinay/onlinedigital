@@ -44,7 +44,8 @@ class FieldchoicesController < ApplicationController
   private
 
   def fieldchoice_params
-    params.require(:fieldchoice).permit(:main_field, :sub_field, :exp_year, :exp_month, :resume_id)
+    params.require(:fieldchoice).permit(:main_field, :sub_field, :exp_year,
+                                        :exp_month, :resume_id)
   end
 
   def find_fieldchoice

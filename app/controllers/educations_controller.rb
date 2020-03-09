@@ -43,7 +43,9 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:name, :board, :degree, :cource, :graduation_status, :pass_year, :city, :state, :country, :result, :resume_id)
+    params.require(:education).permit(:name, :board, :degree, :cource, 
+                                      :graduation_status, :pass_year, :city, 
+                                      :state, :country, :result, :resume_id)
   end
 
   def find_education

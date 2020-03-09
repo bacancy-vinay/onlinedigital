@@ -4,5 +4,6 @@
 class AdminsController < ApplicationController
   def index
     @users = User.all
+    @resumes = Resume.all
   end
 end

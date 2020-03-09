@@ -2,8 +2,7 @@ document.addEventListener("turbolinks:load", function () {
   var country = document.getElementById("address_country");
   var state = document.getElementById("address_state");
   
-
-  country.addEventListener("change", function(){
+  country.addEventListener("change", function () {
     while (state.firstChild) state.removeChild(state.firstChild);
     Rails.ajax({
       url: "/states/address_state?country=" + country.value,
@@ -11,7 +10,7 @@ document.addEventListener("turbolinks:load", function () {
     })
   })
 
-  state.addEventListener("change", function(){
+  state.addEventListener("change", function () {
     Rails.ajax({
       url: "/cities/address_city?country=" + country.value + "&state=" + state.value,
       type: "GET"

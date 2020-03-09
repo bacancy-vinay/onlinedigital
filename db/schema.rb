@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_072735) do
+ActiveRecord::Schema.define(version: 2020_03_09_082203) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "profile"
@@ -120,6 +120,15 @@ ActiveRecord::Schema.define(version: 2020_03_02_072735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_interests_on_resume_id"
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "owner_name"
+    t.string "owner_post"
+    t.integer "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_owners_on_business_id"
   end
 
   create_table "resumes", force: :cascade do |t|

@@ -1,20 +1,43 @@
 <h1>@businesss#show</h1>
-    <%= @business.title %>
-    <%= @business.owner_name %>
-    <%= @business.owner_post %>
-    <%= @business.info %>
-    <%= @business.address1 %>
-    <%= @business.address2 %>
-    <%= @business.city %>
-    <%= @business.state %>
-    <%= @business.country %>
-    <%= @business.pincode %>
-    <%= @business.email %>
-    <%= @business.facebook %>
-    <%= @business.instagram %>
-    <%= @business.business_pan %>
-    <%= @business.contact_no %>
-    <%= @business.add_info_title %>
-    <%= @business.add_info_info %>  
-<%= link_to "edit", edit_business_path(@business) %>
-<%= link_to "delete", business_path(@business), method: :delete, data: {confirm:"Are you sure?"}%>
+<%= @business.title %>
+<%= @business.owner_name %>
+<%= @business.owner_post %>
+<% unless @business.owners.empty? %>
+<p>
+  <b>Owner</b>
+</p>
+  <% @business.owners.each do |owner| %>
+    <%= owner.owner_name %>
+    <%= owner.owner_post %>
+  <% end %>
+<% end %>
+  <%= @business.info %>
+<p>
+  <b>Address</b>
+</p>
+  <%= @business.address1 %>
+  <%= @business.address2 %>
+  <%= @business.city %>
+  <%= @business.state %>
+  <%= @business.country %>
+  <%= @business.pincode %>
+<% unless @business.addresses.empty? %>
+  <% @business.addresses.each do |address| %>
+    <%= address.address1 %>
+    <%= address.address2 %>
+    <%= address.city %>
+    <%= address.state %> 
+    <%= address.country %>
+    <%= address.pincode %>
+  <% end %>
+<% end %>
+<br/>
+  <%= @business.email %>
+  <%= @business.facebook %>
+  <%= @business.instagram %>
+  <%= @business.business_pan %>
+  <%= @business.contact_no %>
+  <%= @business.add_info_title %>
+  <%= @business.add_info_info %>
+  <%= link_to "edit", edit_business_path(@business) %>
+  <%= link_to "delete", business_path(@business), method: :delete, data: {confirm:"Are you sure?"}%>
