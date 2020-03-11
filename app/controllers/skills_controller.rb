@@ -2,6 +2,7 @@
 
 # skill controller
 class SkillsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_skill, only: %i[edit show update destroy]
 
   def new

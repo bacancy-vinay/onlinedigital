@@ -1,4 +1,5 @@
 document.addEventListener("turbolinks:load", function () {
+  
   var country = document.getElementById("address_country");
   var state = document.getElementById("address_state");
   

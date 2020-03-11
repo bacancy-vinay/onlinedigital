@@ -2,6 +2,7 @@
 
 # Business Controller
 class BusinessesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_business, only: %i[edit show update destroy]
   def new
     @business = Business.new
@@ -49,8 +50,8 @@ class BusinessesController < ApplicationController
                                      :add_info_title, :add_info_info,
                                      owners_attributes: %i[id owner_name
                                                            owner_post _destroy],
-                                     addresses_attributes: %i[id address1
-                                                              address2 city state
+                                     addresses_attributes: %i[id address1 state
+                                                              address2 city
                                                               country pincode])
   end
 

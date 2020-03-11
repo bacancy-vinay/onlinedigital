@@ -2,6 +2,7 @@
 
 # interest controller
 class InterestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_interest, only: %i[edit show update destroy]
 
   def new

@@ -2,6 +2,7 @@
 
 # About controller
 class AboutsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_about, only: %i[edit show update destroy]
 
   def new

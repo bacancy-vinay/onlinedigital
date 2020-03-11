@@ -2,6 +2,7 @@
 
 # fieldchoice controller
 class FieldchoicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_fieldchoice, only: %i[edit show update destroy]
 
   def new

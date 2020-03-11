@@ -2,6 +2,7 @@
 
 # Experience Controller which is describe intership or job experience
 class ExperiencesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_experience, only: %i[edit show update destroy]
 
   def new

@@ -2,6 +2,7 @@
 
 # Resume controller
 class ResumesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_resume, only: %i[edit show destroy]
   def new
     @resume = Resume.new
@@ -29,6 +30,20 @@ class ResumesController < ApplicationController
     @experiences = @resume.experiences
     @skills = @resume.skill
     @interests = @resume.interests
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: 'resumes/show.html.erb',
+               pdf: 'try',
+               layout: 'pdf.html',
+               margin: { top: 0,
+                         bottom: 0,
+                         left: 0,
+                         right: 0 },
+               orientation: 'Portrait',
+               page_size: "Letter"
+      end
+    end
   end
 
   def edit

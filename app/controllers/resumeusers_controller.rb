@@ -2,6 +2,7 @@
 
 # ResumeUser controller for basic details
 class ResumeusersController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_resumeuser, only: %i[edit show update destroy]
 
   def new

@@ -2,6 +2,7 @@
 
 # Education controller
 class EducationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_education, only: %i[edit show update destroy]
 
   def new
@@ -17,7 +18,7 @@ class EducationsController < ApplicationController
     @education = Education.new(education_params)
     @education.resume_id = params[:resume_id]
     if @education.save!
-      redirect_to resume_educations_path 
+      redirect_to resume_educations_path
     else
       render 'new'
     end
@@ -43,8 +44,8 @@ class EducationsController < ApplicationController
   private
 
   def education_params
-    params.require(:education).permit(:name, :board, :degree, :cource, 
-                                      :graduation_status, :pass_year, :city, 
+    params.require(:education).permit(:name, :board, :degree, :cource,
+                                      :graduation_status, :pass_year, :city,
                                       :state, :country, :result, :resume_id)
   end
 

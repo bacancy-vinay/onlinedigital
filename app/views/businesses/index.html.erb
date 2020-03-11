@@ -1,55 +1,24 @@
-<h1>Businesses#index</h1>
-<p>Find me in app/views/businesses/index.html.erb</p>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>title</th>
-      <th>owner_name</th>
-      <th>owner_post</th>
-      <th>info</th>
-      <th>address1</th>
-      <th>address2</th>
-      <th>city</th>
-      <th>state</th>
-      <th>country</th>
-      <th>pincode</th>
-      <th>email</th>
-      <th>website</th>
-      <th>facebook</th>
-      <th>instagram</th>
-      <th>business_pan</th>
-      <th>contact_no</th>
-      <th>add_info_title</th>
-      <th>add_info_info</th>
+<div class=container>
+  <h1>Businesses#index</h1>
 
+  <p>Find me in app/views/businesses/index.html.erb</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>title</th>
+      </tr>
+    </thead>
+    <% @businesses.each do |business| %>
+    <tr>
+      <td><%= business.title %></td>
+      <td><%= link_to "show", business_path(business) %></td>
+      <td><%= link_to "edit", edit_business_path(business) %></td>
+      <td><%= link_to "delete", business_path(business), method: :delete, data: {confirm:"Are you sure?"}%>
+      </td>
+      <% end %>
     </tr>
-  </thead>
-  <% @businesses.each do |business| %>
-  <tr>
-    <td><%= business.title %></td>
-    <td><%= business.owner_name %></td>
-    <td><%= business.owner_post %></td>
-    <td><%= business.info %></td>
-    <td><%= business.address1 %></td>
-    <td><%= business.address2 %></td>
-    <td><%= business.city %></td>
-    <td><%= business.state %></td>
-    <td><%= business.country %></td>
-    <td><%= business.pincode %></td>
-    <td><%= business.email %></td>
-    <td><%= business.facebook %></td>
-    <td><%= business.instagram %></td>
-    <td><%= business.business_pan %></td>
-    <td><%= business.contact_no %></td>
-    <td><%= business.add_info_title %></td>
-    <td><%= business.add_info_info %></td>    
-    <td><%= link_to "show", business_path(business) %></td>
-    <td><%= link_to "edit", edit_business_path(business) %></td>
-    <td><%= link_to "delete", business_path(business), method: :delete, data: {confirm:"Are you sure?"}%>
-    </td>
-    <% end %>
-  </tr>
-</table>
-<div class="btn btn-info">
-  <%= link_to "create new ", new_business_path, :class => "btn" %>
+  </table>
+  <div class="btn btn-info">
+    <%= link_to "create new ", new_business_path, :class => "btn" %>
+  </div>
 </div>

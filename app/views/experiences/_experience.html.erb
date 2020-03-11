@@ -23,17 +23,17 @@
 
 <div class="field">
   <%= f.label :county %><br />
-  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] } ) %>
+  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @address.country) %>
 </div>
 
 <div class="field">
   <%= f.label :state %><br />
-  <%= f.select :state, options_for_select([])%>
+  <%= f.select :state, options_for_select(CS.states(@address.country),@address.state)%>
 </div>
 
 <div class="field">
   <%= f.label :city %><br />
-  <%= f.select :city, options_for_select([]) %>
+  <%= f.select :city, options_for_select(CS.cities(@address.state),@address.city) %>
 </div>
 
 <div class="field">
@@ -42,6 +42,6 @@
 </div>
 
 <div class="actions">
-  <%= f.submit "Submit" %>
+  <%= f.submit :class => "button" %>
 </div>
 <% end %>

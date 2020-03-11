@@ -2,6 +2,7 @@
 
 # state dropdown
 class StatesController < ApplicationController
+  before_action :authenticate_user!
   def address_state
     @states = CS.states(params[:country])
   end

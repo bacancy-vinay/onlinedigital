@@ -2,6 +2,7 @@
 
 # Address Controller
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_address, only: %i[edit show update destroy]
 
   def new
@@ -30,7 +31,7 @@ class AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to resume_address_path
+      redirect_to resume_addresses_path
     else
       redirect_to 'edit'
     end
