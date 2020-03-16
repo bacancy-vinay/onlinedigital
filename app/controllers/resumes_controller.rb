@@ -41,7 +41,7 @@ class ResumesController < ApplicationController
                          left: 0,
                          right: 0 },
                orientation: 'Portrait',
-               page_size: "Letter"
+               page_size: "A4"
       end
     end
   end

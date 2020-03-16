@@ -1,47 +1,59 @@
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
 <%= form_with(model: [@resume, @experience]) do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :exp_type %> 
-<%= f.select(:exp_type, Experience::EXPTYPE) %>
+<%= f.select(:exp_type, Experience::EXPTYPE, class: "form-control") %>
 </div>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :name %> 
-<%= f.text_field :name, autofocus:true, autocomplete: "name" %>
+<%= f.text_field :name, autofocus:true, autocomplete: "name", class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :start_date %> 
-<%= f.date_field :start_date, autofocus:true, autocomplete: "start_date" %>
+<%= f.date_field :start_date, autofocus:true, autocomplete: "start_date", class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :end_date %> 
-<%= f.date_field :end_date, autofocus:true, autocomplete: "end_date" %>
+<%= f.date_field :end_date, autofocus:true, autocomplete: "end_date", class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="form-row">
+<div class= "col">
   <%= f.label :county %><br />
-  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @address.country) %>
+  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @experience.country), class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="col">
   <%= f.label :state %><br />
-  <%= f.select :state, options_for_select(CS.states(@address.country),@address.state)%>
+  <%= f.select :state, options_for_select(CS.states(@experience.country), @experience.state), class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="col">
   <%= f.label :city %><br />
-  <%= f.select :city, options_for_select(CS.cities(@address.state),@address.city) %>
+  <%= f.select :city, options_for_select(CS.cities(@experience.state), @experience.city), class: "form-control" %>
 </div>
+</div>
+<br>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :info %> 
-<%= f.text_area :info, autofocus:true, autocomplete: "info" %>
+<%= f.text_area :info, autofocus:true, autocomplete: "info", class: "form-control" %>
 </div>
 
-<div class="actions">
-  <%= f.submit :class => "button" %>
+<div class="form-group">
+  <%=f.submit :class => "btn btn-primary" %>
 </div>
 <% end %>
+</div>
+</div>
+</div>

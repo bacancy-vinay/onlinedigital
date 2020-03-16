@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light  bg-light ">
-  <%if current_user %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 0px;">  
+<%if current_user %>
   <% if current_user.has_role? :admin %>
   <a class="navbar-brand"><%=  link_to "Digital Profile", admins_path, class: "navbar-brand"%></a>
   <% else %>
@@ -25,6 +25,7 @@
       <% if user_signed_in?%>
       <li class=nav-item><%= link_to "Account", edit_user_registration_path, class: "active"%> </li>
       <li class=nav-item><%= link_to "Resume",  resumes_path  , class: "active"%></li>
+      <li class=nav-item><%= link_to "Business",  businesses_path  , class: "active"%></li>      
       <li class=nav-item><span class="fa fa-sign-out"></span>
         <%= link_to "sign out", destroy_user_session_path , method: :delete %></li>
       <%else%>

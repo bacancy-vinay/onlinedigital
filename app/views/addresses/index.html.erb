@@ -1,3 +1,7 @@
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back%>
+</div>
+<h1 style = "text-align:center" >Address</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -27,6 +31,9 @@
     <% end %>
   </tr>
 </table>
+
+<% if @addresses.empty? %>
 <div class="btn btn-info">
   <%= link_to "create new ", new_resume_address_path, :class => "btn" %>
 </div>
+<% end %>

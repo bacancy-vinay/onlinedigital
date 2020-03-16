@@ -34,9 +34,9 @@
 
       <div id="contactDetails" class="quickFade delayFour">
         <ul>
-          <li>e: <%= @resumeuser.email%></li>
-          <li>m: <%= @resumeuser.mobile%></li>
-          <li>li: <%= @resumeuser.linkedin%></li>
+          <li><span class= "fa fa-envelope"></span>:<%= @resumeuser.email%></li>
+          <li><span class= "fa fa-phone"></span>:<%= @resumeuser.mobile%></li>
+          <li><span class= "fa fa-linkedin"></span>:<%= @resumeuser.linkedin%></li>
         </ul>
       </div>
       <div class="clear"></div>
@@ -121,12 +121,12 @@
         <% end %>
         <div class="clear"></div>
       </section>
-
+      
+      <% if @interests.any? %>
       <section>
         <div class="sectionTitle">
           <h1>Interest in </h1>
         </div>
-        <% if @interests.any? %>
         <% @interests.each do |interest|%>
 
         <div class="sectionContent">

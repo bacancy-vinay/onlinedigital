@@ -1,113 +1,146 @@
-<%= form_with(model: @business) do |f| %>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <%= form_with(model: @business, class: "form-group") do |f| %>
 
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title, autofocus:true, autocomplete: "title" %>
-</div>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus:true, autocomplete: "title", class: "form-control" %>
+      </div>
+      <hr>
 
-<div class="field">
-  <%= f.label :owner_name %>
-  <%= f.text_field :owner_name, autofocus:true, autocomplete: "owner_name" %>
-</div>
+      <div class="form-row">
+        <div class="col">
+          <%= f.label :owner_name %>
+          <%= f.text_field :owner_name, autofocus:true, autocomplete: "owner_name", class: "form-control"%>
+        </div>
 
-<div class="field">
-  <%= f.label :owner_post %>
-  <%= f.text_field :owner_post, autofocus:true, autocomplete: "owner_post" %>
-</div>
-<h3>Owners</h3>
-<div id='owners'>
-  <%=  f.fields_for :owners do |owner| %>
-  <%= render 'owner_fields', :f => owner %>
-  <% end %>
-  <div class='links'>
-    <%= link_to_add_association 'add owner', f, :owners %>
+        <div class="col">
+          <%= f.label :owner_post %>
+          <%= f.text_field :owner_post, autofocus:true, autocomplete: "owner_post", class: "form-control" %>
+        </div>
+      </div>
+      <br>
+      <div id='owners'>
+        <%=  f.fields_for :owners do |owner| %>
+        <%= render 'owner_fields', :f => owner %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Add Owner', f, :owners, class: 'btn btn-primary' %>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <div class="form-group">
+        <%= f.label :contact_no %>
+        <%= f.text_field :contact_no, autofocus:true, autocomplete: "contact_no", class: "form-control"%>
+      </div>
+      <div id='contacts'>
+        <%= f.fields_for :contacts do |contact| %>
+        <%= render 'contact_fields', :f => contact %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Add contact', f, :contacts, class: 'btn btn-primary' %>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :info %>
+        <%= f.text_area :info, autofocus:true, autocomplete: "info", class: "form-control" %>
+      </div>
+      <hr>
+      <h2>Home Address</h2>
+      <div class="form-group">
+        <%= f.label :address1 %>
+        <%= f.text_field :address1, autofocus:true, autocomplete: "address1", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address2 %>
+        <%= f.text_field :address2, autofocus:true, autocomplete: "address2", class: "form-control" %>
+      </div>
+
+      <div class="form-row">
+        <div class="col">
+          <%= f.label :country %>
+          <%= f.text_field :country, autofocus:true, autocomplete: "country", class: "form-control" %>
+        </div>
+
+        <div class="col">
+          <%= f.label :state %>
+          <%= f.text_field :state, autofocus:true, autocomplete: "state", class: "form-control" %>
+        </div>
+
+        <div class="col">
+          <%= f.label :city %>
+          <%= f.text_field :city, autofocus:true, autocomplete: "city", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :pincode %>
+        <%= f.text_field :pincode, autofocus:true, autocomplete: "pincode", class: "form-control" %>
+      </div>
+      <br>
+      <div id='addresses'>
+        <%= f.fields_for :addresses do |address| %>
+        <%= render 'address_fields', :f => address%>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Add Office adderss', f, :addresses, class: 'btn btn-primary'%>
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus:true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website, autofocus:true, autocomplete: "website", class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :facebook %>
+        <%= f.text_field :facebook, autofocus:true, autocomplete: "facebook", class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :instagram %>
+        <%= f.text_field :instagram, autofocus:true, autocomplete: "instagram", class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :images %>
+        <%= f.file_field :images, multiple: true %>
+      </div>
+      Files:
+      <% @business.images.each do |file| %>
+      <!-- <%= link_to file.filename, file, target: :blank %> -->
+      <% if @business.images.present? %>
+      <div style="width:400px; hiegth:auto">
+        <%= image_tag(file, style:"width:100%") %>
+      </div>
+      <% else %>
+      <h3> Image is not uploaded </h3>
+      <% end %>
+      <%end%>
+      <hr>
+
+      <div class="fieform-groupld">
+        <%= f.label :add_info_title %>
+        <%= f.text_field :add_info_title, autofocus:true, autocomplete: "add_info_title", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :add_info_info %>
+        <%= f.text_field :add_info_info, autofocus:true, autocomplete: "add_info_info", class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<div class="field">
-  <%= f.label :info %>
-  <%= f.text_area :info, autofocus:true, autocomplete: "info" %>
-</div>
-
-<div class="field">
-  <%= f.label :address1 %>
-  <%= f.text_field :address1, autofocus:true, autocomplete: "address1" %>
-</div>
-
-<div class="field">
-  <%= f.label :address2 %>
-  <%= f.text_field :address2, autofocus:true, autocomplete: "address2" %>
-</div>
-
-<div class="field">
-  <%= f.label :city %>
-  <%= f.text_field :city, autofocus:true, autocomplete: "city" %>
-</div>
-
-<div class="field">
-  <%= f.label :state %>
-  <%= f.text_field :state, autofocus:true, autocomplete: "state" %>
-</div>
-
-<div class="field">
-  <%= f.label :country %>
-  <%= f.text_field :country, autofocus:true, autocomplete: "country" %>
-</div>
-
-<div class="field">
-  <%= f.label :pincode %>
-  <%= f.text_field :pincode, autofocus:true, autocomplete: "pincode" %>
-</div>
-
-<div id='addresses'>
-  <%= f.fields_for :addresses do |address| %>
-  <%= render 'address_fields', :f => address%>
-  <% end %>
-  <div class='links'>
-    <%= link_to_add_association 'add address', f, :addresses%>
-  </div>
-</div>
-<div class="field">
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus:true, autocomplete: "email" %>
-</div>
-
-<div class="field">
-  <%= f.label :website %>
-  <%= f.text_field :website, autofocus:true, autocomplete: "website"%>
-</div>
-
-<div class="field">
-  <%= f.label :facebook %>
-  <%= f.text_field :facebook, autofocus:true, autocomplete: "facebook"%>
-</div>
-
-<div class="field">
-  <%= f.label :instagram %>
-  <%= f.text_field :instagram, autofocus:true, autocomplete: "instagram"%>
-</div>
-
-
-<div class="field">
-  <%= f.label :business_pan %>
-  <%= f.text_field :business_pan, autofocus:true, autocomplete: "business_pan" %>
-</div>
-
-<div class="field">
-  <%= f.label :contact_no %>
-  <%= f.text_field :contact_no, autofocus:true, autocomplete: "contact_no" %>
-</div>
-
-<div class="field">
-  <%= f.label :add_info_title %>
-  <%= f.text_field :add_info_title, autofocus:true, autocomplete: "add_info_title" %>
-</div>
-
-<div class="field">
-  <%= f.label :add_info_info %>
-  <%= f.text_field :add_info_info, autofocus:true, autocomplete: "add_info_info" %>
-</div>
-<div class="actions">
-  <%= f.submit :class => "button" %>
-</div>
-<% end %>

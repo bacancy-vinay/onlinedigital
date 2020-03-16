@@ -4,4 +4,11 @@
 class Address < ApplicationRecord
   belongs_to :resume, optional: true
   belongs_to :business, optional: true
+  
+  validates :address1, presence: true
+  validates :address2, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :country, presence: true
+  validates :pincode, format: { with: /[0-9]{6}/, message: 'Enter digit only'}
 end

@@ -1,6 +1,12 @@
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<h1 style = "text-align:center" >Resume User details</h1>
+<% if @resumeusers.empty? %>
 <div class="btn btn-info">
   <%= link_to "create new ", new_resume_resumeuser_path, :class => "btn" %>
 </div>
+<% end %>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -20,7 +26,6 @@
     <td><%= resumeuser.last_name %></td>
     <td><%= resumeuser.email %></td>
     <td><%= resumeuser.mobile%></td>
-    <%# <td><%= resumeuser.website %></td> %>
     <td><%= resumeuser.linkedin %></td>
     <td><%= resumeuser.birthdate %></td>
     <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id) %></td>

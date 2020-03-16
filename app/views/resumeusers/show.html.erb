@@ -1,11 +1,25 @@
-<%= @resumeuser.prefix%>
-<%= @resumeuser.first_name %>
-<%= @resumeuser.last_name %>
-<%= @resumeuser.last_name %>
-<%= @resumeuser.email %>
-<%= @resumeuser.mobile%>
-<%# <%= @resumeuser.website %> %>
-<%= @resumeuser.linkedin %>
-<%= @resumeuser.birthdate %>
-<%= link_to "edit", edit_resume_resumeuser_path(@resume,@resumeuser) %>
-<%= link_to "delete", resume_resumeuser_path(@resume,@resumeuser), method: :delete, data: {confirm:"Are you sure?"}%>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Resume User show</h1><br>
+        Prefix: <%= @resumeuser.prefix%><br>
+        First name : <%= @resumeuser.first_name %><br>
+        Last name : <%= @resumeuser.last_name %><br>
+        Email : <%= @resumeuser.email %><br>
+        Mobile : <%= @resumeuser.mobile%><br>
+        Linkedin : <%= @resumeuser.linkedin %><br>
+        Birthdate : <%= @resumeuser.birthdate %><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_resumeuser_path(@resume,@resumeuser) %>
+        </div>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "delete", resume_resumeuser_path(@resume,@resumeuser), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,6 @@ class CreateBusinesses < ActiveRecord::Migration[5.2]
       t.string :website
       t.string :facebook
       t.string :instagram
-      t.string :business_pan
       t.integer :contact_no
       t.string :add_info_title
       t.string :add_info_info

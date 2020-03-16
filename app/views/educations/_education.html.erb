@@ -1,56 +1,70 @@
-<%= form_with(model: [@resume, @education]) do |f| %>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+<%= form_with(model: [@resume, @education], class: "form-group") do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, autofocus:true, autocomplete: "name" %>
+  <%= f.text_field :name, autofocus:true, autocomplete: "name", class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :board %>
-  <%= f.text_field :board, autofocus:true, autocomplete: "board" %>
+  <%= f.text_field :board, autofocus:true, autocomplete: "board", class: "form-control" %>
 </div>
-
-<div class="field">
+<div class="form-row">
+<div class="col">
   <%= f.label :degree %>
-  <%= f.text_field :degree, autofocus:true, autocomplete: "degree" %>
+  <%= f.text_field :degree, autofocus:true, autocomplete: "degree", class: "form-control" %>
 </div>
-
-<div class="field">
+<div class="col">
   <%= f.label :cource %>
-  <%= f.text_field :cource, autofocus:true, autocomplete: "cource" %>
+  <%= f.text_field :cource, autofocus:true, autocomplete: "cource", class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
+<br>
+<div class="form-row">
+<div class="col">
   <%= f.label :graduation_status %>
-  <%= f.select(:graduation_status, Education::STATUS) %>
+  <%= f.select(:graduation_status, Education::STATUS, class: "form-control") %>
 </div>
 
-<div class="field">
+<div class="col">
   <%= f.label :pass_year%>
-  <%= f.date_field :pass_year, autofocus:true, autocomplete: "pass_year" %>
+  <%= f.date_field :pass_year, autofocus:true, autocomplete: "pass_year", class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
+<div class="form-row">
+<div class="col">
   <%= f.label :county %><br />
-  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @address.country) %>
+  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @education.country), class: "form-control" %>
 </div>
 
-<div class="field">
+<div class="col">
   <%= f.label :state %><br />
-  <%= f.select :state, options_for_select(CS.states(@address.country),@address.state)%>
+  <%= f.select :state, options_for_select(CS.states(@education.country),@education.state), class: "form-control"%>
 </div>
 
-<div class="field">
+<div class="col">
   <%= f.label :city %><br />
-  <%= f.select :city, options_for_select(CS.cities(@address.state),@address.city) %>
+  <%= f.select :city, options_for_select(CS.cities(@education.state),@education.city), class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :result %>
-  <%= f.text_field :result, autofocus:true, autocomplete: "result" %>
+<div class="form-group">
+  <%= f.label :result %> = <i>NOTE : write in percentage = "70%" OR CGPA "9.0 CGPA"</i>
+  <%= f.text_field :result, autofocus:true, autocomplete: "result", class: "form-control" %>
 </div>
-<div class="actions">
-  <%= f.submit :class => "button" %>
+<div class="form-group">
+  <%= f.submit :class => "btn btn-primary" %>
 </div>
 <% end %>
+</div>
+</div>
+</div>

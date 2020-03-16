@@ -1,12 +1,21 @@
-<%= form_with(model: [@resume, @interest]) do |f| %>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+<%= form_with(model: [@resume, @interest], class: "form-group") do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
-<div class="field">
+<div class="form-group">
 <%= f.label :interest_list %> 
-<%= f.text_field :interest_list, autofocus:true, autocomplete: "interest_list" %>
+<%= f.text_field :interest_list, autofocus:true, autocomplete: "interest_list", class: "form-control" %>
 </div>
 
-<div class="actions">
-  <%= f.submit :class => "button" %>
+<div class="form-group">
+  <%=f.submit :class => "btn btn-primary" %>
 </div>
 <% end %>
+</div>
+</div>
+</div>

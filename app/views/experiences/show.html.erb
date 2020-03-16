@@ -1,10 +1,26 @@
-<%= @experience.exp_type %>
-<%= @experience.name %>
-<%= @experience.start_date %>
-<%= @experience.end_date %>
-<%= @experience.country %>
-<%= @experience.state%>
-<%= @experience.city %>
-<%= @experience.info %>
-<%= link_to "edit", edit_resume_experience_path(@resume,@experience) %>
-<%= link_to "delete", resume_experience_path(@resume,@experience), method: :delete, data: {confirm:"Are you sure?"}%>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Experience show</h1><br>
+        Internship/job type: <%= @experience.exp_type %><br>
+        Exp name :<%= @experience.name %><br>
+        Start date : <%= @experience.start_date %><br>
+        End date : <%= @experience.end_date %><br>
+        Country : <%= @experience.country %><br>
+        State : <%= @experience.state%><br>
+        City : <%= @experience.city %><br>
+        Description : <%= @experience.info %><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_experience_path(@resume,@experience) %>
+        </div>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "delete", resume_experience_path(@resume,@experience), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

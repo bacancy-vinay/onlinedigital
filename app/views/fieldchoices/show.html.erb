@@ -1,10 +1,22 @@
-<h1>Fieldchoices#show</h1>
-<p>Find me in app/views/fieldchoices/show.html.erb</p>
-<%= @fieldchoice.main_field%>
-<%= @fieldchoice.sub_field%>
-<%= @fieldchoice.exp_year%>
-<%= @fieldchoice.exp_month%>
-
-
-<%= link_to "edit", edit_resume_fieldchoice_path(@resume,@fieldchoice) %>
-<%= link_to "delete", resume_fieldchoice_path(@resume,@fieldchoice), method: :delete, data: {confirm:"Are you sure?"}%>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back %>
+</div>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Fieldchoice show</h1><br>
+        Parent field<%= @fieldchoice.main_field%><br>
+        Sub field<%= @fieldchoice.sub_field%><br>
+        Experience year<%= @fieldchoice.exp_year%><br>
+        Experience month<%= @fieldchoice.exp_month%><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_fieldchoice_path(@resume,@fieldchoice) %>
+        </div>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "delete", resume_fieldchoice_path(@resume,@fieldchoice), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

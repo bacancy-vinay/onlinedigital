@@ -2,7 +2,7 @@
 
 # Business Controller
 class BusinessesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :find_business, only: %i[edit show update destroy]
   def new
     @business = Business.new
@@ -14,7 +14,6 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    @owner = Owner.new
     @business.user_id = current_user.id
     if @business.save!
       redirect_to businesses_path
@@ -43,11 +42,12 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:title, :owner_name, :owner_post, :info,
-                                     :address1, :address2, :city, :state,
-                                     :country, :pincode, :email, :facebook,
-                                     :instagram, :business_pan, :contact_no,
-                                     :add_info_title, :add_info_info,
+    params.require(:business).permit(:title, :owner_name, :owner_post, :country,
+                                     :info, :address1, :address2, :city, :state,
+                                     :email, :pincode, :facebook, :add_info_info,
+                                     :instagram, :contact_no, :add_info_title,
+                                     images: [],
+                                     contacts_attributes: %i[id contact_no],
                                      owners_attributes: %i[id owner_name
                                                            owner_post _destroy],
                                      addresses_attributes: %i[id address1 state

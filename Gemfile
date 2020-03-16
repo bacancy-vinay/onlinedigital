@@ -3,11 +3,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
-gem "cocoon"
+gem 'cocoon'
+gem 'client_side_validations'
 gem 'devise'
 gem 'hirb'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
+gem 'mini_magick'
+
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rolify'
 gem 'sqlite3'

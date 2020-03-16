@@ -1,4 +1,7 @@
-<h1>Interests#index</h1>
+<div><span class="fa fa-arrow-left"></span>
+  <%= link_to "back", :back%>
+</div>
+<h1 style = "text-align:center" >Interests</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -12,7 +15,6 @@
   <% @interests.each do |interest| %>
   <tr>
     <td><%= interest.interest_list %></td>
-    <td><%= link_to "show", resume_interest_path(:id => interest.id) %></td>
     <td><%= link_to "edit", edit_resume_interest_path(:id => interest.id) %></td>
     <td><%= link_to "delete", resume_interest_path(:id => interest.id), method: :delete, data: {confirm:"Are you sure?"}%>
     </td>
