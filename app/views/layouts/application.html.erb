@@ -5,15 +5,21 @@
   <title>DigitalProfile</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-  <%= render 'layouts/header' %>
-  <%= yield :sidebar %>
-  <%= yield %>
+<%= render  "layouts/header"%>
+  <div class="content">
+    <% if user_signed_in? %>
+    <%= render "layouts/sidebar" unless request.fullpath=='/resumes'%>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
+
+</html>
 </body>
 
 </html>

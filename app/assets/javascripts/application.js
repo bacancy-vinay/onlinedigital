@@ -12,11 +12,15 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require rails.validations
 //= require bootstrap.min
 //= require popper
 //= require bootstrap
 //= require activestorage
 //= require cocoon
+//= require sidebar
 //= require_tree .
 //= require addcity
+
+import '@client-side-validations/client-side-validations'
 

@@ -2,10 +2,12 @@
  *= require font-awesome
  *= require resumes
  *= require sidebar
+ *= require business_template1
  */
 
 @import "bootstrap";
 @import "font-awesome.css";
+@import "w3.css";
 
 body{
     background: rgb(255, 255, 255);  /* fallback for old browsers */
@@ -17,10 +19,9 @@ body{
     padding-left:30px;
     padding-right:30px;
 }
-
-
-
-
+.message{
+    color: red;
+}
 
 
 

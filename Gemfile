@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
-gem 'cocoon'
 gem 'client_side_validations'
+gem 'cocoon'
 gem 'devise'
 gem 'hirb'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'

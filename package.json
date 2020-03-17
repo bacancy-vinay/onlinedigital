@@ -2,6 +2,7 @@
   "name": "digital_profile",
   "private": true,
   "dependencies": {
+    "@client-side-validations/client-side-validations": "^0.1.1",
     "toggle-class": "^0.0.0"
   }
 }
