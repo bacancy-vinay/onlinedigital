@@ -3,7 +3,8 @@
 # Resume controller
 class ResumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_resume, only: %i[edit show destroy]
+  before_action :find_resume, only: %i[destroy show]
+  before_action :edit_resume, only: %i[edit]
   def new
     @resume = Resume.new
   end
@@ -16,7 +17,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new
     @resume.user_id = current_user.id
     if @resume.save!
-      redirect_to edit_resume_path(@resume)
+      redirect_to resume_fieldchoices_path(@resume)
     else
       render 'new'
     end
@@ -41,12 +42,13 @@ class ResumesController < ApplicationController
                          left: 0,
                          right: 0 },
                orientation: 'Portrait',
-               page_size: "A4"
+               page_size: 'A4'
       end
     end
   end
 
   def edit
+    redirect_to resume_fieldchoices_path(@resume)
     @about = @resume.about
     @resumeuser = @resume.resumeuser
     @addresses = @resume.addresses
@@ -70,6 +72,10 @@ class ResumesController < ApplicationController
   end
 
   private
+
+  def edit_resume
+    @resume = Resume.find(params[:resume_id])
+  end
 
   def find_resume
     @resume = Resume.find(params[:id])

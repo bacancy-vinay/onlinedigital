@@ -1,54 +1,30 @@
-<h1>Manage Users</h1><br />
-<table class="table">
-  <thead class="thead-dark">
+<% @page_title = "All Users"%>
+
+<body>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+    <% if user.has_role? :admin %>
+    <% else %>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Mobile</th>
-      <th>Email</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.mobile %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to "edit", edit_user_registration_path(user)%></td>
+      <td><%= link_to "delete", user_registration_path(user)%>
     </tr>
-  </thead>
-
-  <% @users.each do |user| %>
-  <% if user.has_role? :admin %>
-  <% else %>
-  <tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.mobile %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to "edit", edit_user_registration_path(user)%></td>
-    <td><%= link_to "delete", user_registration_path(user)%>
-  </tr>
-  <% end %>
-  <% end %>
-</table>
-
-<br />
-<h1>Manage Resumes</h1></br>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>id</th>
-      <th>username</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <% @resumes.each do |resume| %>
-  <tr>
-    <td><%= resume.id%></td>
-    <td><%= resume.user.first_name + resume.user.last_name%></td>
-    <td><%= link_to "edit", edit_resume_path(:id=>resume.id) %></td>
-    <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%>
-    </td>
-    <td><%= link_to "show", resume_path(:id => resume.id) %>
-      <br />
-  </tr>
-  <% end %>
-</table>
+    <% end %>
+    <% end %>
+  </table>
+</body>

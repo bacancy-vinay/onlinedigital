@@ -1,6 +1,5 @@
-<div><span class="fa fa-arrow-left"></span>
-  <%= link_to "back", :back %>
-</div>
+<%= render partial:"layouts/sidebar" %>
+
 <h1 style = "text-align:center" >Resume User details</h1>
 <% if @resumeusers.empty? %>
 <div class="btn btn-info">
@@ -8,7 +7,7 @@
 </div>
 <% end %>
 <table class="table">
-  <thead class="thead-dark">
+  <thead class="thead">
     <tr>
       <th>Prefix</th>
       <th>First Name</th>

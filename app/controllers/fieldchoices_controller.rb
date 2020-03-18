@@ -31,7 +31,7 @@ class FieldchoicesController < ApplicationController
 
   def update
     if @fieldchoice.update(fieldchoice_params)
-      redirect_to resume_fieldchoice_path
+      redirect_to resume_fieldchoices_path
     else
       redirect_to 'edit'
     end

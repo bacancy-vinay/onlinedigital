@@ -9,10 +9,14 @@ Rails.application.routes.draw do
   get 'states/experience_state'
   get 'cities/experience_city'
   get 'resumes/sidebar'
-  resources :admins
+  resources :admins do 
+    get 'admin_resume', on: :collection
+    get 'admin_business', on: :collection
+  end
   resources :dashboards
   devise_for :users
-  resources :resumes do
+  resources :resumes, except: [:edit] do
+    get 'edit', to: 'resumes#edit'
     resources :resumeusers
     resources :addresses
     resources :fieldchoices

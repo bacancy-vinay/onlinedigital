@@ -1,8 +1,7 @@
-<div><span class="fa fa-arrow-left"></span>
-  <%= link_to "back", :back %>
-</div>
+<% @page_title = "Education"%>
+<%= render partial:"layouts/sidebar" %>
 <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
+    <div class="row h-100 justify-content-center align-items-top">
         <div class="col-10 col-md-8 col-lg-6">
 <%= form_with(model: [@resume, @education], class: "form-group") do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
@@ -31,7 +30,7 @@
 <div class="form-row">
 <div class="col">
   <%= f.label :graduation_status %>
-  <%= f.select(:graduation_status, Education::STATUS, class: "form-control") %>
+  <%= f.select(:graduation_status, Education::STATUS, {prompt: "Select Field"}, class: "form-control" )%>
 </div>
 
 <div class="col">
@@ -39,24 +38,24 @@
   <%= f.date_field :pass_year, autofocus:true, autocomplete: "pass_year", class: "form-control" %>
 </div>
 </div>
-
+<br>
 <div class="form-row">
 <div class="col">
   <%= f.label :county %><br />
-  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @education.country), class: "form-control" %>
+  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @education.country), {prompt: "Select country"}, class: "form-control" %>
 </div>
 
 <div class="col">
   <%= f.label :state %><br />
-  <%= f.select :state, options_for_select(CS.states(@education.country),@education.state), class: "form-control"%>
+  <%= f.select :state, options_for_select(CS.states(@education.country),@education.state), {prompt: "Select state"}, class: "form-control"%>
 </div>
 
 <div class="col">
   <%= f.label :city %><br />
-  <%= f.select :city, options_for_select(CS.cities(@education.state),@education.city), class: "form-control" %>
+  <%= f.select :city, options_for_select(CS.cities(@education.state),@education.city),{prompt: "Select city"},  class: "form-control" %>
 </div>
 </div>
-
+<br>
 <div class="form-group">
   <%= f.label :result %> = <i>NOTE : write in percentage = "70%" OR CGPA "9.0 CGPA"</i>
   <%= f.text_field :result, autofocus:true, autocomplete: "result", class: "form-control" %>

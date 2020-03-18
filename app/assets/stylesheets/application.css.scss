@@ -8,23 +8,23 @@
 @import "bootstrap";
 @import "font-awesome.css";
 @import "w3.css";
-
-body{
-    background: rgb(255, 255, 255);  /* fallback for old browsers */
-    // background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+  background: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
 }
 
-.navbar-nav > li{
-    padding-left:30px;
-    padding-right:30px;
-}
-.message{
-    color: red;
+.navbar-nav>li {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
+.message {
+  color: red;
+}
 
-
-
-
-
+.thead {
+  background-color: #406e9a;
+  color: white;
+}

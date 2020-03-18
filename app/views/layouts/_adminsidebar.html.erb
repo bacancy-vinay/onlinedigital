@@ -9,35 +9,17 @@
     <!-- Sidebar -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>Resume</h3>
+        <h3>Admin</h3>
       </div>
       <ul class="list-unstyled components">
         <li>
-          <%= link_to "Field choice", "/resumes/"+params[:resume_id]+"/fieldchoices" %>
+          <%= link_to "Users", "/admins" %>
         </li>
         <li>
-          <%= link_to "About", "/resumes/"+params[:resume_id]+"/abouts"%>
+          <%= link_to "Resumes", "/admins/admin_resume/"%>
         </li>
         <li>
-          <%= link_to "User Profile","/resumes/"+params[:resume_id]+"/resumeusers" %>
-        </li>
-        <li>
-          <%= link_to "Address", "/resumes/"+params[:resume_id]+"/addresses"%>
-        </li>
-        <li>
-          <%= link_to "Education", "/resumes/"+params[:resume_id]+"/educations" %>
-        </li>
-        <li>
-          <%= link_to "Experience", "/resumes/"+params[:resume_id]+"/experiences"%>
-        </li>
-        <li>
-          <%= link_to "Skill", "/resumes/"+params[:resume_id]+"/skills"%>
-        </li>
-        <li>
-          <%= link_to "Interest", "/resumes/"+params[:resume_id]+"/interests"%>
-        </li>
-        <li>
-          <%= link_to "Show", "/resumes/"+params[:resume_id]+""%>
+          <%= link_to "Business profile", "/admins/admin_business/"%>
         </li>
       </ul>
     </nav>
@@ -60,17 +42,17 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
-
-              <li class="nav-item">
-                <%= link_to "Show", "/resumes/"+params[:resume_id]+"" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Download as PDF',"/resumes/"+params[:resume_id]+".pdf", target: :_blank %>
-              </li>
+              <% if user_signed_in?%>
+              <li class=nav-item><%= link_to "Account", edit_user_registration_path, class: "active"%> </li>
+              <li class=nav-item><span class="fa fa-sign-out"></span>
+                <%= link_to "sign out", destroy_user_session_path , method: :delete %></li>
+              <%else%>
+              <li class=nav-item><%= link_to "Sign Up", new_user_registration_path,class: "active" %></li>
+              <li class=nav-item><%= link_to "Sign In", new_user_session_path,class: "active" %></li>
+              <%end%>
             </ul>
           </div>
         </div>
       </nav>
 </body>
-
 </html>

@@ -10,16 +10,10 @@
 </head>
 
 <body>
-<%= render  "layouts/header"%>
-  <div class="content">
-    <% if user_signed_in? %>
-    <%= render "layouts/sidebar" unless request.fullpath=='/resumes'%>
-    <% end %>
-    <%= yield %>
-  </div>
+  <% redirect_me %>
+  <%= yield%>
 </body>
 
 </html>
 </body>
-
 </html>

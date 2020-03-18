@@ -1,0 +1,16 @@
+<% @page_title = " Business details"%>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>title</th>
+    </tr>
+  </thead>
+  <% @businesses.each do |business| %>
+  <tr>
+    <td><%= business.title %></td>
+    <td><%= link_to "show", business_path(business) %></td>
+    <td><%= link_to "delete", business_path(business), method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    <% end %>
+  </tr>
+</table>

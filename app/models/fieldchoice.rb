@@ -6,4 +6,5 @@ class Fieldchoice < ApplicationRecord
   MAIN_FIELD = ['Accounting.', 'IT', 'CIVIL', 'AUTOMOBILE'].freeze
   SUB_FIELD = ['ROR DEVVELOPER', 'LARAVEL DEVELOPER', 'IOS DEVELOPER',
                'ANDROID DEVELOPER'].freeze
+               
 end

@@ -1,38 +1,37 @@
-<div><span class="fa fa-arrow-left"></span>
-  <%= link_to "back", :back %>
-</div>
+<% @page_title = "Field choice "%>
+<%= render partial:"layouts/sidebar" %>
 <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-        <div class="col-10 col-md-8 col-lg-6">
-<%= form_with(model: [@resume, @fieldchoice], class: "form-group") do |f|%>
-<%= hidden_field_tag :resume_id, params[:resume_id] %>
-<div class="form-group">
-  <p>Select your carrier field<p>
-      <%= f.label :main_field %><br />
-      <%= f.select :main_field, Fieldchoice::MAIN_FIELD, class: "form-control" %>
-</div>
+  <div class="row h-100 justify-content-center align-items-top">
+    <div class="col-10 col-md-8 col-lg-6">
+      <%= form_with(model: [@resume, @fieldchoice], class: "form-group") do |f|%>
+      <%= hidden_field_tag :resume_id, params[:resume_id] %>
+      <div class="form-group">
+        <p>Select your carrier field<p>
+            <%= f.label :main_field %><br />
+            <%= f.select :main_field, Fieldchoice::MAIN_FIELD, {prompt: "Select Field"}, class: "form-control" %>
+      </div>
 
-<div class="form-group">
-  <p>Sub-functional Area (what is your job) </p>
-  <%= f.label :sub_field %><br />
-  <%= f.select :sub_field, Fieldchoice::SUB_FIELD, class: "form-control" %>
-</div>
+      <div class="form-group">
+        <p>Sub-functional Area (what is your job) </p>
+        <%= f.label :sub_field %><br />
+        <%= f.select :sub_field, Fieldchoice::SUB_FIELD, {prompt: "Select Sub-Field"}, {class: "form-control"} %>
+      </div>
 
-<div class="form-row">
-<div class="col">
-  <%= f.label :exp_year %><br />
-  <%= f.select :exp_year,options_for_select((0..30).map {|i| "#{i}" }), class: "form-control" %>
-</div>
-<div class="col">
-  <%= f.label :exp_month %><br />
-  <%= f.select :exp_month, options_for_select((0..12).map {|i| "#{i}" }), class: "form-control" %>
-</div>
-</div>
-<br>
-<div class="form-group">
-  <%= f.submit :class => "btn btn-primary" %>
-</div>
-<% end %>
-</div>
-</div>
+      <div class="form-row">
+        <div class="col">
+          <%= f.label :exp_year %><br />
+          <%= f.select :exp_year,options_for_select((0..30).map {|i| "#{i}" }), {prompt: "Select year"}, class: "form-control" %>
+        </div>
+        <div class="col">
+          <%= f.label :exp_month %><br />
+          <%= f.select :exp_month, options_for_select((0..12).map {|i| "#{i}" }), {prompt: "Select month"}, class: "form-control" %>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

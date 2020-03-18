@@ -1,9 +1,4 @@
-<% content_for(:sidebar) do %>
-  <%= render partial:"layouts/sidebar" %>
-<% end %>
-<center>
-  <h1>Edit Resume</h1>
-</center>
+<%= render partial:"layouts/sidebar" %>
 
 <div class="btn btn-info">
   <%= link_to "Field choice", resume_fieldchoices_path(@resume), :class => "btn" %>

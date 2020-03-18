@@ -7,4 +7,12 @@ class AdminsController < ApplicationController
     @users = User.all
     @resumes = Resume.all
   end
+
+  def admin_resume
+    @resumes = Resume.all
+  end
+
+  def admin_business
+    @businesses = Business.all
+  end
 end

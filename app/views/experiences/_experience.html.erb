@@ -1,15 +1,14 @@
-<div><span class="fa fa-arrow-left"></span>
-  <%= link_to "back", :back %>
-</div>
+<% @page_title = "Experience"%>
+<%= render partial:"layouts/sidebar" %>
 <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
+    <div class="row h-100 justify-content-center align-items-top">
         <div class="col-10 col-md-8 col-lg-6">
 <%= form_with(model: [@resume, @experience]) do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <div class="form-group">
 <%= f.label :exp_type %> 
-<%= f.select(:exp_type, Experience::EXPTYPE, class: "form-control") %>
+<%= f.select(:exp_type, Experience::EXPTYPE, {prompt: "Select country"}, class: "form-control") %>
 </div>
 
 <div class="form-group">
@@ -30,17 +29,17 @@
 <div class="form-row">
 <div class= "col">
   <%= f.label :county %><br />
-  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @experience.country), class: "form-control" %>
+  <%= f.select :country,  options_for_select(CS.countries.map { |c| [c[1], c[0]] }, @experience.country), {prompt: "Select country"}, class: "form-control" %>
 </div>
 
 <div class="col">
   <%= f.label :state %><br />
-  <%= f.select :state, options_for_select(CS.states(@experience.country), @experience.state), class: "form-control" %>
+  <%= f.select :state, options_for_select(CS.states(@experience.country), @experience.state), {prompt: "Select country"}, class: "form-control" %>
 </div>
 
 <div class="col">
   <%= f.label :city %><br />
-  <%= f.select :city, options_for_select(CS.cities(@experience.state), @experience.city), class: "form-control" %>
+  <%= f.select :city, options_for_select(CS.cities(@experience.state), @experience.city), {prompt: "Select country"},  class: "form-control" %>
 </div>
 </div>
 <br>

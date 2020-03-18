@@ -1,16 +1,15 @@
-<div><span class="fa fa-arrow-left"></span>
-  <%= link_to "back", :back %>
-</div>
+<%= render partial:"layouts/sidebar" %>
+
 <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
+    <div class="row h-100 justify-content-center align-items-top">
         <div class="col-10 col-md-8 col-lg-6">
 <%= form_with(model: [@resume, @resumeuser], class: "form-group")do |f|%>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
-
+<div class="from-group">
 <div class="form-row">
 <div class="col">
   <%= f.label :prefix %><br />
-  <%= f.select(:prefix, Resumeuser::PREFIX_LIST) %>
+  <%= f.select :prefix, Resumeuser::PREFIX_LIST, {prompt: "select prefix"}, class: "form-control" %>
 </div>
 
 <div class="col">
@@ -20,6 +19,7 @@
 <div class="col">
   <%= f.label :last_name %><br />
   <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+</div>
 </div>
 </div>
 

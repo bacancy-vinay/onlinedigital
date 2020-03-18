@@ -6,7 +6,7 @@
     <div class="btn btn-info">
       <%= link_to "create new ", new_resume_path, :class => "btn" %>
     </div>
-    <thead class="thead-dark">
+    <thead class="thead">
       <th>NO</th>
       <th>Username</th>
       <th>Remove</th>
@@ -16,12 +16,12 @@
     <tr>
       <td><%= resume.id%></td>
       <td><%= resume.user.first_name + resume.user.last_name%></td>
-      <td><%= link_to "edit", edit_resume_path(:id=>resume.id) %></td>
+      <td><%= link_to "edit", resume_edit_path(resume.id) %></td>
       <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%></td>
       <td><%= link_to "show", resume_path(:id => resume.id) %>
       <td>
         <div class="btn btn-info m-0 p-0 ">
-          <%= link_to 'Download as PDF', resume_path(:id => resume.id, :format => :pdf), :class => "btn" %>
+          <%= link_to 'Download as PDF', resume_path(:id => resume.id, :format => :pdf), :class => "btn", target: :_blank %>
         </div>
       </td>
       <br />
