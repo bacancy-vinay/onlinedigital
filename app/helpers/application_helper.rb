@@ -2,6 +2,8 @@
 
 # application helper
 module ApplicationHelper
+  include Pagy::Frontend
+
   def redirect_me
     if user_signed_in?
       if current_user.has_role? :admin

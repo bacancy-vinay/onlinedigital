@@ -1,9 +1,5 @@
 
-<%= @business.owner_post %>
 <% unless @business.owners.empty? %>
-<p>
-  <b>Owner</b>
-</p>
 <% @business.owners.each do |owner| %>
 <%= owner.owner_name %>
 <%= owner.owner_post %>
@@ -109,12 +105,12 @@
               <% unless @business.addresses.empty? %>
               <% @business.addresses.each do |address| %>
               <h4>Office Address</h4>
-              <p><%= address.address1 %></p>
-              <p><%= address.address2 %></p>
-              <p><%= address.city %></p>
-              <p><%= address.state %></p>
-              <p><%= address.country %></p>
-              <p><%= address.pincode %></p>
+              <p>Street : <%= address.address1 %></p>
+              <p>Area : <%= address.address2 %></p>
+              <p>City : <%= address.city %></p>
+              <p>State : <%= address.state %></p>
+              <p>Country : <%= address.country %></p>
+              <p>Pincode : <%= address.pincode %></p>
               <% end %>
               <% end %>
             </div>

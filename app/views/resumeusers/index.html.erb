@@ -1,6 +1,5 @@
+<% @page_title = "User details"%>
 <%= render partial:"layouts/sidebar" %>
-
-<h1 style = "text-align:center" >Resume User details</h1>
 <% if @resumeusers.empty? %>
 <div class="btn btn-info">
   <%= link_to "create new ", new_resume_resumeuser_path, :class => "btn" %>
@@ -16,6 +15,9 @@
       <th>Mobile</th>
       <th>Linked-in</th>
       <th>Birthdate</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <% @resumeusers.each do |resumeuser| %>
@@ -27,10 +29,10 @@
     <td><%= resumeuser.mobile%></td>
     <td><%= resumeuser.linkedin %></td>
     <td><%= resumeuser.birthdate %></td>
-    <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id) %></td>
-    <td><%= link_to "edit", edit_resume_resumeuser_path(:id => resumeuser.id) %></td>
+    <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "edit", edit_resume_resumeuser_path(:id => resumeuser.id), class: "btn btn-primary" %></td>
     <td>
-      <%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}%>
+      <%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

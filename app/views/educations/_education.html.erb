@@ -3,7 +3,7 @@
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-top">
         <div class="col-10 col-md-8 col-lg-6">
-<%= form_with(model: [@resume, @education], class: "form-group") do |f| %>
+<%= form_with(model: [@resume, @education], class: "form-group", validate: true) do |f| %>
 <%= hidden_field_tag :resume_id, params[:resume_id] %>
 
 <div class="form-group">

@@ -10,7 +10,11 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resumes = Resume.where(params[:resume_id])
+    if params[:query].present?
+      @pagy, @resumes = pagy(Resume.searching(params[:query]), items: 5)
+    else
+      @pagy, @resumes = pagy(Resume.where(params[:resume_id]), items: 5)
+    end
   end
 
   def create
@@ -41,8 +45,7 @@ class ResumesController < ApplicationController
                          bottom: 0,
                          left: 0,
                          right: 0 },
-               orientation: 'Portrait',
-               page_size: 'A4'
+               orientation: 'Portrait'
       end
     end
   end

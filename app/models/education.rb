@@ -11,6 +11,6 @@ class Education < ApplicationRecord
   validates :board, presence: true
   validates :graduation_status, presence: true
   validates :result, presence: true
-
+  validates :country, presence: true
 
 end

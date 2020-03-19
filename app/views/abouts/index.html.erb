@@ -1,6 +1,5 @@
 <% @page_title = "About Resume"%>
 <%= render partial:"layouts/sidebar" %>
-<h1 style = "text-align:center" >About Resume</h1>
 <table class="table">
   <thead class="thead">
     <tr>
@@ -15,9 +14,14 @@
   <tr>
     <td><%= about.profile %></td>
     <td><%= about.info %></td>
-    <td><%= link_to "show", resume_about_path(:id => about.id) %></td>
-    <td><%= link_to "edit", edit_resume_about_path(:id => about.id) %></td>
-    <td><%= link_to "delete", resume_about_path(:id => about.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    <td>
+        <%= link_to "Show", resume_about_path(:id => about.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Edit", edit_resume_about_path(:id => about.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Delete", resume_about_path(:id => about.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

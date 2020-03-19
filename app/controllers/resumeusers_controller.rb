@@ -31,7 +31,7 @@ class ResumeusersController < ApplicationController
 
   def update
     if @resumeuser.update(resumeuser_params)
-      redirect_to resume_resumeuser_path
+      redirect_to resume_resumeusers_path
     else
       redirect_to 'edit'
     end

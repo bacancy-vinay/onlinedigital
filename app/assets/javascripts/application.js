@@ -12,6 +12,10 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require dashboard
+//= require addcity
+//= require addedu
+//= require addexp
 //= require rails.validations
 //= require bootstrap.min
 //= require popper
@@ -20,7 +24,7 @@
 //= require cocoon
 //= require sidebar
 //= require_tree .
-//= require addcity
+
 
 import '@client-side-validations/client-side-validations'
 

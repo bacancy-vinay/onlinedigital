@@ -1,5 +1,16 @@
 <%= form_with(method: "post", model:@resume )do |f|%>
-<div class="actions">
-  <%= f.submit :class => "button" %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Follow the steps</h1>
+    <ul>
+      <li>1. Fill Each and every from information</li>
+      <li>2. For out click on show </li>
+      <li>3. For Download click Download pdf </li>
+    </ul>
+    <div class="actions">
+      <%= f.submit "Start here",class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
+
 <%end%>

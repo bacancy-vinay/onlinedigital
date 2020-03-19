@@ -19,19 +19,13 @@
     <td><%= fieldchoice.exp_year%></td>
     <td><%= fieldchoice.exp_month%></td>
     <td>
-      <div class="btn btn-outline-primary fa fa-eye">
-        <%= link_to "show", resume_fieldchoice_path(:id => fieldchoice.id) %>
-      </div>
+        <%= link_to "show", resume_fieldchoice_path(:id => fieldchoice.id), class: "btn btn-primary" %>
     </td>
     <td>
-      <div class="btn btn-outline-primary fa fa-edit">
-        <%= link_to "edit", edit_resume_fieldchoice_path(:id => fieldchoice.id) %>
-      </div>
+        <%= link_to "edit", edit_resume_fieldchoice_path(:id => fieldchoice.id), class: "btn btn-primary" %>
     </td>
     <td>
-      <div class="btn btn-outline-danger fa fa-trash-o">
-        <%= link_to "delete", resume_fieldchoice_path(:id => fieldchoice.id), method: :delete, data: {confirm:"Are you sure?"}%>
-      </div>
+        <%= link_to "delete", resume_fieldchoice_path(:id => fieldchoice.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

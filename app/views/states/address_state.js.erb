@@ -1,16 +1,7 @@
-//Address state view  file
 var state = document.getElementById("address_state");
 
-// Clear the options in the select box
-while (state.firstChild) state.removeChild(state.firstChild);
-var placeholder = document.createElement("option");
-placeholder.text = "Choose a state";
-placeholder.value = "";
-address_state.appendChild(placeholder);
-
-// Add the states
 <% @states.each do |s| %>
-address_state.options[address_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
+state.options[address_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
 <% end %>
 
 

@@ -1,6 +1,5 @@
 <% @page_title = "Address"%>
 <%= render partial:"layouts/sidebar" %>
-<h1 style = "text-align:center" >Address</h1>
 <table class="table">
   <thead class="thead">
     <tr>
@@ -23,9 +22,14 @@
     <td><%= CS.states(address.country.to_sym)[address.state.to_sym] %></td>
     <td><%= address.city%></td>
     <td><%= address.pincode%></td>
-    <td><%= link_to "show", resume_address_path(:id => address.id) %></td>
-    <td><%= link_to "edit", edit_resume_address_path(:id => address.id) %></td>
-    <td><%= link_to "delete", resume_address_path(:id => address.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    <td>
+        <%= link_to "Show", resume_address_path(:id => address.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Edit", edit_resume_address_path(:id => address.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Delete", resume_address_path(:id => address.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

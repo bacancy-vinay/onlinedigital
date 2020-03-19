@@ -3,6 +3,7 @@
  *= require resumes
  *= require sidebar
  *= require business_template1
+ *= require resume_template1
  */
 
 @import "bootstrap";
@@ -27,4 +28,12 @@ body {
 .thead {
   background-color: #406e9a;
   color: white;
+}
+
+.pagination{
+  margin-top: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

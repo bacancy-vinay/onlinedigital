@@ -1,6 +1,5 @@
 <% @page_title = "Experience"%>
 <%= render partial:"layouts/sidebar" %>
-<h1 style = "text-align:center" >Experience</h1>
 <table class="table">
   <thead class="thead">
     <tr>
@@ -9,7 +8,6 @@
       <th>Start date</th>
       <th>End date</th>
       <th>country</th>
-      <th>Pass Year</th>
       <th>state</th>
       <th>city</th>
       <th>info</th>
@@ -28,9 +26,9 @@
     <td><%= experience.state %>
     <td><%= experience.city %></td>
     <td><%= experience.info %></td>
-    <td><%= link_to "show", resume_experience_path(:id => experience.id) %></td>
-    <td><%= link_to "edit", edit_resume_experience_path(:id => experience.id) %></td>
-    <td><%= link_to "delete", resume_experience_path(:id => experience.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    <td><%= link_to "show", resume_experience_path(:id => experience.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "edit", edit_resume_experience_path(:id => experience.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "delete", resume_experience_path(:id => experience.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

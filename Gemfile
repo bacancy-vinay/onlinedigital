@@ -10,7 +10,7 @@ gem 'hirb'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'
 gem 'mini_magick'
-
+gem 'pagy', '~> 3.5'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rolify'
 gem 'sqlite3'
@@ -58,9 +58,9 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'pry'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry'
 end
 
 group :test do

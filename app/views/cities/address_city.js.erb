@@ -1,13 +1,5 @@
 var city = document.getElementById("address_city");
 
-// Clear the options in the select box
-while (city.firstChild) city.removeChild(city.firstChild);
-
-var placeholder = document.createElement("option");
-placeholder.text = "Choose a city";
-placeholder.value = "";
-city.appendChild(placeholder);
-
 <% @cities.each do |c| %>
 city.options[city.options.length] = new Option('<%= c%>');
 <% end %>

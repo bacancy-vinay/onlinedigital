@@ -11,6 +11,7 @@
 // grey : #6b7474 
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -53,6 +54,7 @@ a:focus {
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
+
 h3 {
     text-transform: uppercase;
 }
@@ -65,6 +67,7 @@ h3 {
     display: flex;
     width: 100%;
     align-items: stretch;
+    
 }
 
 #sidebar {
@@ -74,6 +77,7 @@ h3 {
     color: #fff;
     text-transform: uppercase;
     transition: all 0.3s;
+    
 }
 
 #sidebar.active {
@@ -82,7 +86,7 @@ h3 {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background:  #406e9a;
+    background: #406e9a;
 }
 
 #sidebar ul.components {
@@ -161,9 +165,11 @@ ul.CTAs a {
     #sidebar {
         margin-left: -250px;
     }
+
     #sidebar.active {
         margin-left: 0;
     }
+
     #sidebarCollapse span {
         display: none;
     }

@@ -1,6 +1,5 @@
+<% @page_title = "Skill"%>
 <%= render partial:"layouts/sidebar" %>
-
-<h1 style = "text-align:center" >Skill</h1>
 <table class="table">
   <thead class="thead">
     <tr>
@@ -15,8 +14,8 @@
   <tr>
     <td><%= skill.skill_list %></td>
     <td><%= skill.rating %></td>
-    <td><%= link_to "edit", edit_resume_skill_path(:id => skill.id) %></td>
-    <td><%= link_to "delete", resume_skill_path(:id => skill.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    <td><%= link_to "edit", edit_resume_skill_path(:id => skill.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "delete", resume_skill_path(:id => skill.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

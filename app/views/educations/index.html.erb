@@ -1,6 +1,5 @@
 <% @page_title = "Education"%>
 <%= render partial:"layouts/sidebar" %>
-<h1 style = "text-align:center" >Education</h1>
 <table class="table">
   <thead class="thead">
     <tr>
@@ -31,9 +30,14 @@
     <td><%= CS.states(education.country.to_sym)[education.state.to_sym] %></td>
     <td><%= education.city %></td>
     <td><%= education.result %></td>
-    <td><%= link_to "show", resume_education_path(:id => education.id) %></td>
-    <td><%= link_to "edit", edit_resume_education_path(:id => education.id) %></td>
-    <td><%= link_to "delete", resume_education_path(:id => education.id), method: :delete, data: {confirm:"Are you sure?"}%>
+    <td>
+        <%= link_to "show", resume_education_path(:id => education.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "edit", edit_resume_education_path(:id => education.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "delete", resume_education_path(:id => education.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
     </td>
     <% end %>
   </tr>

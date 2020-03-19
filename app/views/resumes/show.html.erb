@@ -17,8 +17,8 @@
         <%# <img src="headshot.jpg" alt="Alan Smith" /> %>
       </div>
       <div id="name">
-        <h1 class="quickFade delayTwo"><%= @resumeuser&.first_name%> <%= @resumeuser&.last_name%></h1>
-        <h2 class="quickFade delayThree"><%= @about&.profile %></h2>
+        <h1 class="quickFade delayOne"><%= @resumeuser&.first_name%> <%= @resumeuser&.last_name%></h1>
+        <h3 class="quickFade delayOne"><%= @about&.profile %></h3>
         <% if @addresses.any? %>
         <% @addresses.each do |address|%>
         <%= address.address1%>
@@ -32,7 +32,7 @@
 
       </div>
 
-      <div id="contactDetails" class="quickFade delayFour">
+      <div id="contactDetails" class="quickFade delayOne">
         <ul>
           <li><span class= "fa fa-envelope"></span>:<%= @resumeuser&.email%></li>
           <li><span class= "fa fa-phone"></span>:<%= @resumeuser&.mobile%></li>
@@ -42,7 +42,7 @@
       <div class="clear"></div>
     </div>
 
-    <div id="mainArea" class="quickFade delayFive">
+    <div id="mainArea" class="quickFade delayOne">
       <section>
         <article>
           <div class="sectionTitle">

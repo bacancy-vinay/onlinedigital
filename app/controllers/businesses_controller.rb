@@ -9,7 +9,11 @@ class BusinessesController < ApplicationController
   end
 
   def index
-    @businesses = Business.all
+    if params[:query].present?
+      @pagy, @businesses = pagy(Business.searching(params[:query]), items: 5)
+    else
+      @pagy, @businesses = pagy(Business.all, items: 5)
+    end
   end
 
   def create
