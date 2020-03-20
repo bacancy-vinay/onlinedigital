@@ -18,7 +18,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @experience.resume_id = params[:resume_id]
     if @experience.save!
-      redirect_to resume_experiences_path
+      redirect_to resume_experiences_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class ExperiencesController < ApplicationController
 
   def update
     if @experience.update(experience_params)
-      redirect_to resume_experiences_path
+      redirect_to resume_experiences_path, notice: 'successfully updated.'
     else
       redirect_to 'edit'
     end
@@ -38,7 +38,7 @@ class ExperiencesController < ApplicationController
 
   def destroy
     @experience.destroy
-    redirect_to resume_experiences_path
+    redirect_to resume_experiences_path, notice: 'successfully destroyed'
   end
 
   private

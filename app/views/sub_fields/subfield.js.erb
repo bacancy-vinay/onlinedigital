@@ -1,7 +1,7 @@
 var sub_field = document.getElementById("fieldchoice_sub_field");
 
 <% @sub.each do |c| %>
-  sub_field.options[sub_field.options.length] = new Option('<%= c[:sub_field]%>','<%= c[:id] %>')
+  sub_field.options[sub_field.options.length] = new Option('<%= c[:sub_field]%>','<%= c[:sub_field] %>')
 <% end %>
 
 

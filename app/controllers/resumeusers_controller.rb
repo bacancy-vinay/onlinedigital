@@ -19,7 +19,7 @@ class ResumeusersController < ApplicationController
     @resumeuser.resume_id = params[:resume_id]
 
     if @resumeuser.save!
-      redirect_to resume_resumeusers_path
+      redirect_to resume_resumeusers_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class ResumeusersController < ApplicationController
 
   def update
     if @resumeuser.update(resumeuser_params)
-      redirect_to resume_resumeusers_path
+      redirect_to resume_resumeusers_path, notice: 'successfully updateds.'
     else
       redirect_to 'edit'
     end
@@ -39,7 +39,7 @@ class ResumeusersController < ApplicationController
 
   def destroy
     @resumeuser.destroy
-    redirect_to resume_resumeusers_path
+    redirect_to resume_resumeusers_path, notice: 'successfully destroyed.'
   end
 
   private

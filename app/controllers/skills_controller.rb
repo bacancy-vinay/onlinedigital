@@ -18,7 +18,7 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
     @skill.resume_id = params[:resume_id]
     if @skill.save!
-      redirect_to resume_skills_path
+      redirect_to resume_skills_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class SkillsController < ApplicationController
 
   def update
     if @skill.update(skill_params)
-      redirect_to resume_skills_path
+      redirect_to resume_skills_path, notice: 'successfully updated.'
     else
       redirect_to 'edit'
     end
@@ -38,7 +38,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    redirect_to resume_skills_path
+    redirect_to resume_skills_path, notice: 'successfully destroyed.'
   end
 
   private

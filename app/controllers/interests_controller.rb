@@ -18,7 +18,7 @@ class InterestsController < ApplicationController
     @interest = Interest.new(interest_params)
     @interest.resume_id = params[:resume_id]
     if @interest.save!
-      redirect_to resume_interests_path
+      redirect_to resume_interests_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class InterestsController < ApplicationController
 
   def update
     if @interest.update(interest_params)
-      redirect_to resume_interests_path
+      redirect_to resume_interests_path, notice: 'successfully updated.'
     else
       redirect_to 'edit'
     end
@@ -38,7 +38,7 @@ class InterestsController < ApplicationController
 
   def destroy
     @interest.destroy
-    redirect_to resume_interests_path
+    redirect_to resume_interests_path, notice: 'successfully destroyed.'
   end
 
   private

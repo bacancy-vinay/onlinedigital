@@ -10,10 +10,16 @@
 @import "font-awesome.css";
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-
-body {
+body, html {
+  margin: 0px;
+  padding: 0px;
   background: rgb(255, 255, 255);
-  background: #fafafa;
+}
+
+@media (min-width: 1200px) {
+  .container{
+      max-width: 970px;
+  }
 }
 
 .navbar-nav>li {

@@ -19,7 +19,7 @@ class AddressesController < ApplicationController
     @address.resume_id = params[:resume_id]
 
     if @address.save!
-      redirect_to resume_addresses_path
+      redirect_to resume_addresses_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to resume_addresses_path
+      redirect_to resume_addresses_path, notice: 'successfully updated.'
     else
       redirect_to 'edit'
     end
@@ -39,7 +39,7 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to resume_addresses_path
+    redirect_to resume_addresses_path, notice: 'successfully destroy.'
   end
 
   private

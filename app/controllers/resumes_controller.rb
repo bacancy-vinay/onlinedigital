@@ -21,7 +21,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new
     @resume.user_id = current_user.id
     if @resume.save!
-      redirect_to resume_fieldchoices_path(@resume)
+      redirect_to resume_fieldchoices_path(@resume), notice: 'successfully created.'
     else
       render 'new'
     end
@@ -71,7 +71,7 @@ class ResumesController < ApplicationController
 
   def destroy
     @resume.destroy!
-    redirect_to resumes_path
+    redirect_to resumes_path, notice: 'successfully destroyed.'
   end
 
   private

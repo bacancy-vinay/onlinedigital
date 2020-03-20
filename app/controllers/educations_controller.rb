@@ -18,7 +18,7 @@ class EducationsController < ApplicationController
     @education = Education.new(education_params)
     @education.resume_id = params[:resume_id]
     if @education.save!
-      redirect_to resume_educations_path
+      redirect_to resume_educations_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class EducationsController < ApplicationController
 
   def update
     if @education.update(education_params)
-      redirect_to resume_educations_path
+      redirect_to resume_educations_path, notice: 'successfully updated.'
     else
       redirect_to 'edit'
     end
@@ -38,7 +38,7 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    redirect_to resume_educations_path
+    redirect_to resume_educations_path, notice: 'successfully destroyed.'
   end
 
   private
