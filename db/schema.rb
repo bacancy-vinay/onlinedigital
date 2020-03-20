@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_045435) do
+ActiveRecord::Schema.define(version: 2020_03_20_070917) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "profile"
@@ -140,6 +140,12 @@ ActiveRecord::Schema.define(version: 2020_03_16_045435) do
     t.index ["resume_id"], name: "index_interests_on_resume_id"
   end
 
+  create_table "main_fields", force: :cascade do |t|
+    t.string "main_field"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "owners", force: :cascade do |t|
     t.string "owner_name"
     t.string "owner_post"
@@ -187,6 +193,14 @@ ActiveRecord::Schema.define(version: 2020_03_16_045435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["resume_id"], name: "index_skills_on_resume_id"
+  end
+
+  create_table "sub_fields", force: :cascade do |t|
+    t.string "sub_field"
+    t.integer "main_field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_field_id"], name: "index_sub_fields_on_main_field_id"
   end
 
   create_table "users", force: :cascade do |t|

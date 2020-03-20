@@ -16,6 +16,7 @@
 //= require addcity
 //= require addedu
 //= require addexp
+//= require fieldchoice
 //= require rails.validations
 //= require bootstrap.min
 //= require popper
@@ -26,5 +27,5 @@
 //= require_tree .
 
 
-import '@client-side-validations/client-side-validations'
+// import '@client-side-validations/client-side-validations'
 

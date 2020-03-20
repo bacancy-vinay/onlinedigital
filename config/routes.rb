@@ -9,9 +9,14 @@ Rails.application.routes.draw do
   get 'states/experience_state'
   get 'cities/experience_city'
   get 'resumes/sidebar'
-  resources :admins do 
+  get 'sub_fields/subfield'
+
+  resources :main_fields
+  resources :sub_fields
+  resources :admins do
     get 'admin_resume', on: :collection
     get 'admin_business', on: :collection
+    get 'jobfield', on: :collection
   end
   resources :dashboards
   devise_for :users

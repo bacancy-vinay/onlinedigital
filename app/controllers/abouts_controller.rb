@@ -18,7 +18,7 @@ class AboutsController < ApplicationController
     @about = About.new(about_params)
     @about.resume_id = params[:resume_id]
     if @about.save!
-      redirect_to resume_abouts_path
+      redirect_to resume_abouts_path, notice: 'successfully created.'
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class AboutsController < ApplicationController
 
   def update
     if @about.update(about_params)
-      redirect_to resume_abouts_path
+      redirect_to resume_abouts_path, notice: 'successfully Updated.'
     else
       redirect_to 'edit'
     end
@@ -38,7 +38,7 @@ class AboutsController < ApplicationController
 
   def destroy
     @about.destroy
-    redirect_to resume_abouts_path
+    redirect_to resume_abouts_path, notice: 'successfully Delated.'
   end
 
   private

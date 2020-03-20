@@ -1,0 +1,15 @@
+<%= form_with(model: @sub_field, class: "form-group", validate: true) do |f| %>
+
+<div class="form-group">
+  <%= f.label :sub_field %>
+  <%= f.text_field :sub_field, autofocus:true, autocomplete: "sub_field",  class: "form-control" %>
+</div>
+
+<div class="field">
+  <%= f.label :main %>
+  <%= f.select :main_field_id, options_from_collection_for_select(MainField.all, :id, :main_field), include_blank:"Select Mainfield", :onchange => "update_sub_field(this.value)" %><br />
+</div>
+<div class="actions">
+  <%= f.submit :class => "btn btn-primary" %>
+</div>
+<% end %>
