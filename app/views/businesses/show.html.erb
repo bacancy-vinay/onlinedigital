@@ -1,0 +1,148 @@
+
+<% unless @business.owners.empty? %>
+<% @business.owners.each do |owner| %>
+<%= owner.owner_name %>
+<%= owner.owner_post %>
+<% end %>
+<% end %>
+
+<%= @business.add_info_title %>
+<%= @business.add_info_info %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <%= stylesheet_link_tag "business_template1", media: "all" %>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<div class="container">
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a
+            class="navbar-brand"><%= link_to "#{@business.title}", business_path(@business), class: "navbar-brand" %></a>
+          </a>
+        </div>
+        <li class="active"><a href="#"></a></li>
+        <li><a href="#intro">About business</a></li>
+        <li><a href="#about">Onwer</a></li>
+        <li><a href="#images">Our works</a></li>
+        <li><a href="#contact_us">Contact Us</a></li>
+      </div>
+    </nav>
+    <div id="intro">
+      <div class="jumbotron">
+        <div class="container text-center">
+          <h1><%= @business.title %></h1>
+          <p><%= @business.info %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="about">
+      <div class="jumbotron">
+        <div class="container text-center">
+          <h1><%= @business.owner_name %></h1>
+          <p><%= @business.owner_post %></p>
+          <div class="btn btn-info"><span class="fa fa-whatsapp"></span>
+            <%= link_to "Whatspp","https://wa.me/91#{@business.contact_no}", target: :"_blank", :class => "btn" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="images">
+      <div class="container-fluid bg-3 text-center">
+        <h3>Some of my Work</h3><br>
+        <div class="row">
+          <% (0...@business.images.count).each do |image| %>
+          <%= image_tag(@business.thumbnail(image)) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <div id="contact_us">
+      <footer class="container-fluid text-center">
+        <h3>Contact us</h3><br>
+        <div id="address">
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Home Address</h4>
+              <p>Street  : <%= @business.address1 %></p>
+              <p>Area    : <%= @business.address2 %></p>
+              <p>City    : <%= @business.city %></p>
+              <p>State   : <%= @business.state %></p>
+              <p>Country : <%= @business.country %></p>
+              <p>Pincode : <%= @business.pincode %></p>
+            </div>
+
+            <div class="col-sm-4">
+              <% unless @business.addresses.empty? %>
+              <% @business.addresses.each do |address| %>
+              <h4>Office Address</h4>
+              <p>Street : <%= address.address1 %></p>
+              <p>Area : <%= address.address2 %></p>
+              <p>City : <%= address.city %></p>
+              <p>State : <%= address.state %></p>
+              <p>Country : <%= address.country %></p>
+              <p>Pincode : <%= address.pincode %></p>
+              <% end %>
+              <% end %>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="social-links mt-3">
+                <li><span class="fa fa-facebook-f"></span>
+                  <%= link_to "Facebook", "#{@business.facebook}", target: :"_blank" %>
+                </li>
+                <li><span class="fa fa-instagram"></span>
+                  <%= link_to "Instagram", "#{@business.instagram}", target: :"_blank" %>
+                </li>
+                <li><span class="fa fa-envelope"></span>
+                  <%= @business.email %>
+                </li>
+                <li><span class="fa fa-envelope"></span>
+                  <%= @business.contact_no %>
+                </li>
+                <%unless @business.contacts.empty? %>
+                <li><span class="fa fa-phone">
+                  <% @business.contacts.each do |contact| %>
+                    <%= @business.contact_no %>
+                  <% end %>
+                <% end %>
+                </li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+</div>
+</body>
+
+</html>

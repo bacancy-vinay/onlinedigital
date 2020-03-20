@@ -1,0 +1,38 @@
+<% @page_title = "Experience"%>
+<%= render partial:"layouts/sidebar" %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>EXP IN</th>
+      <th>name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>country</th>
+      <th>state</th>
+      <th>city</th>
+      <th>info</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @experiences.each do |experience| %>
+  <tr>
+    <td><%= experience.exp_type %></td>
+    <td><%= experience.name %></td>
+    <td><%= experience.start_date %></td>
+    <td><%= experience.end_date %></td>
+    <td><%= experience.country%></td>
+    <td><%= experience.state %>
+    <td><%= experience.city %></td>
+    <td><%= experience.info %></td>
+    <td><%= link_to "show", resume_experience_path(:id => experience.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "edit", edit_resume_experience_path(:id => experience.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "delete", resume_experience_path(:id => experience.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_experience_path, :class => "btn" %>
+</div>

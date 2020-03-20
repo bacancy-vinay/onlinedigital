@@ -1,2 +1,36 @@
-<h1>Businesses#index</h1>
-<p>Find me in app/views/businesses/index.html.erb</p>
+<div class=container>
+  <br>
+  <%= form_tag("/businesses", method: "get", remote: false, class:'form-inline md-form mr-auto mb-4') do %>
+  <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2" %>
+  <button class="btn btn-dark" type="submit">Search</button>
+  <% end %>
+  <h1>Businesses Index</h1>
+
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Title</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @businesses.each do |business| %>
+    <tr>
+      <td><%= business.title %></td>
+      <td><%= link_to "Show", business_path(business), class: "btn btn-primary "%></td>
+      <td><%= link_to "Edit", edit_business_path(business), class: "btn btn-primary" %></td>
+      <td>
+        <%= link_to "Delete", business_path(business), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+  <div class="btn btn-info">
+    <%= link_to "create new ", new_business_path, :class => "btn" %>
+  </div>
+</div>
+
+<div class="pagination">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

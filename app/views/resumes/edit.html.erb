@@ -1,0 +1,38 @@
+<%= render partial:"layouts/sidebar" %>
+
+<div class="btn btn-info">
+  <%= link_to "Field choice", resume_fieldchoices_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "About", resume_abouts_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "User Profile",resume_resumeusers_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Address", resume_addresses_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Education", resume_educations_path(@resume), :class => "btn" %>
+</div>
+<div class="btn btn-info">
+  <%= link_to "Experience", resume_experiences_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Skill", resume_skills_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Interest", resume_interests_path(@resume), :class => "btn" %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Show", resume_path(@resume), :class => "btn" %>
+</div>
+
+

@@ -1,0 +1,39 @@
+/*
+ *= require font-awesome
+ *= require resumes
+ *= require sidebar
+ *= require business_template1
+ *= require resume_template1
+ */
+
+@import "bootstrap";
+@import "font-awesome.css";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+  background: rgb(255, 255, 255);
+  background: #fafafa;
+}
+
+.navbar-nav>li {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.message {
+  color: red;
+}
+
+.thead {
+  background-color: #406e9a;
+  color: white;
+}
+
+.pagination{
+  margin-top: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

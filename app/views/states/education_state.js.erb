@@ -1,0 +1,5 @@
+var edu_state = document.getElementById("education_state");
+
+<% @edu_states.each do |s| %>
+edu_state.options[edu_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
+<% end %>

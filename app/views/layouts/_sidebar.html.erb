@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <%= stylesheet_link_tag "sidebar", media: "all" %>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Resume</h3>
+      </div>
+      <ul class="list-unstyled components">
+        <li>
+          <%= link_to "Field choice", "/resumes/"+params[:resume_id]+"/fieldchoices" %>
+        </li>
+        <li>
+          <%= link_to "About", "/resumes/"+params[:resume_id]+"/abouts"%>
+        </li>
+        <li>
+          <%= link_to "User Detail","/resumes/"+params[:resume_id]+"/resumeusers" %>
+        </li>
+        <li>
+          <%= link_to "Address", "/resumes/"+params[:resume_id]+"/addresses"%>
+        </li>
+        <li>
+          <%= link_to "Education", "/resumes/"+params[:resume_id]+"/educations" %>
+        </li>
+        <li>
+          <%= link_to "Experience", "/resumes/"+params[:resume_id]+"/experiences"%>
+        </li>
+        <li>
+          <%= link_to "Skill", "/resumes/"+params[:resume_id]+"/skills"%>
+        </li>
+        <li>
+          <%= link_to "Interest", "/resumes/"+params[:resume_id]+"/interests"%>
+        </li>
+        <li>
+          <%= link_to "Show", "/resumes/"+params[:resume_id]+""%>
+        </li>
+      </ul>
+    </nav>
+    <!-- Page Content -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-info" onclick="myFunction()">
+            <i class="fa fa-align-left"></i>
+            <%# <span>Toggle Sidebar</span> %>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+          <h3 class="pageheader_title" style="margin-left: 10px;" }><%= @page_title %></h3>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+
+              <li class="nav-item">
+                <%= link_to "Show", "/resumes/"+params[:resume_id]+"" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Download as PDF',"/resumes/"+params[:resume_id]+".pdf", target: :_blank %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</body>
+
+</html>

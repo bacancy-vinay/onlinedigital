@@ -1,0 +1,23 @@
+<% @page_title = "Address"%>
+<%= render partial:"layouts/sidebar" %>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-top">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Address show</h1><br>
+        Address1 : <%= @address.address1%><br>
+        Address2 : <%= @address.address2%><br>
+        Country : <%= @address.country%><br>
+        State : <%= @address.state%><br>
+        City : <%= @address.city%><br>
+        Pincode : <%= @address.pincode%><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_address_path(@resume,@address) %>
+        </div>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "delete", resume_address_path(@resume,@address), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<h1>MainFields#index</h1>
+<p>Find me in app/views/main_fields/index.html.erb</p>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_sub_field_path, :class => "btn" %>
+</div>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Main fields</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @sub_fields.each do |m| %>
+  <tr>
+    <td><%= m.sub_field %></td>
+    <td>
+        <%= link_to "Show", sub_field_path(m), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Edit", edit_sub_field_path(m), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Delete", sub_field_path(m), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>

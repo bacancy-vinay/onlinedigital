@@ -1,0 +1,47 @@
+<% @page_title = "Education"%>
+<%= render partial:"layouts/sidebar" %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Name</th>
+      <th>Board</th>
+      <th>Degree</th>
+      <th>Cource</th>
+      <th>status</th>
+      <th>Pass Year</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Result</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @educations.each do |education| %>
+  <tr>
+    <td><%= education.name %></td>
+    <td><%= education.board %></td>
+    <td><%= education.degree %></td>
+    <td><%= education.cource %></td>
+    <td><%= education.graduation_status %></td>
+    <td><%= education.pass_year %></td>
+    <td><%= CS.countries[education.country.to_sym]%></td>
+    <td><%= CS.states(education.country.to_sym)[education.state.to_sym] %></td>
+    <td><%= education.city %></td>
+    <td><%= education.result %></td>
+    <td>
+        <%= link_to "show", resume_education_path(:id => education.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "edit", edit_resume_education_path(:id => education.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "delete", resume_education_path(:id => education.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_education_path, :class => "btn" %>
+</div>

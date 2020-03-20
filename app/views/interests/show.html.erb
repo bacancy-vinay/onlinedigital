@@ -1,0 +1,18 @@
+<% @page_title = "Interest"%>
+<%= render partial:"layouts/sidebar" %>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-top">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Interest show</h1><br>
+        Interest : <%= @interest.interest_list %><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_about_path(@resume,@interest) %>
+        </div>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "delete", resume_about_path(@resume,@interest), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

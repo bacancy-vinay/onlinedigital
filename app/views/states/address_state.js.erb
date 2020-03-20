@@ -1,0 +1,10 @@
+var state = document.getElementById("address_state");
+
+<% @states.each do |s| %>
+state.options[address_state.options.length] = new Option('<%= s[1] %>','<%= s[0]%>')
+<% end %>
+
+
+
+
+

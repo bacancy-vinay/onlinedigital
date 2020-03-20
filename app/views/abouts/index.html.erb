@@ -1,0 +1,33 @@
+<% @page_title = "About Resume"%>
+<%= render partial:"layouts/sidebar" %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Profile</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @abouts.each do |about| %>
+  <tr>
+    <td><%= about.profile %></td>
+    <td><%= about.info %></td>
+    <td>
+        <%= link_to "Show", resume_about_path(:id => about.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Edit", edit_resume_about_path(:id => about.id), class: "btn btn-primary" %>
+    </td>
+    <td>
+        <%= link_to "Delete", resume_about_path(:id => about.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<% if @abouts.empty? %>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_about_path, :class => "btn" %>
+</div>
+<% end %>

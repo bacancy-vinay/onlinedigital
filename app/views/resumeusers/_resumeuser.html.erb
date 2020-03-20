@@ -1,0 +1,52 @@
+<% @page_title = "User details"%>
+<%= render partial:"layouts/sidebar" %>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-top">
+        <div class="col-10 col-md-8 col-lg-6">
+<%= form_with(model: [@resume, @resumeuser], class: "form-group", validate: true)do |f|%>
+<%= hidden_field_tag :resume_id, params[:resume_id] %>
+<div class="from-group">
+<div class="form-row">
+<div class="col">
+  <%= f.label :prefix %><br />
+  <%= f.select :prefix, Resumeuser::PREFIX_LIST, {prompt: "select prefix"}, class: "form-control" %>
+</div>
+
+<div class="col">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+</div>
+<div class="col">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :mobile %><br />
+  <%= f.text_field :mobile, autofocus: true, autocomplete: "mobile", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :linkedin %><br />
+  <%= f.text_field :linkedin, autofocus: true, autocomplete: "linkedin", class: "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label :birthdate %><br />
+  <%= f.date_field :birthdate, autofocus: true, autocomplete: "birthdate", class: "form-control" %>
+</div>
+
+<div class="actions">
+  <%= f.submit :class => "btn btn-primary" %>
+</div>
+<%end%>
+</div>
+</div>
+</div>

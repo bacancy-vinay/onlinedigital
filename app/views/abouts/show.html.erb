@@ -1,0 +1,20 @@
+<% @page_title = "About Resume"%>
+<%= render partial:"layouts/sidebar" %>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-top">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Abouts show</h1>
+        <p>Profile : <%= @about.profile %></p>
+        <p>Objective : <%= @about.info %></p>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "Edit", edit_resume_about_path(@resume,@about) %>
+        </div>
+        <br>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "Delete", resume_about_path(@resume,@about), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

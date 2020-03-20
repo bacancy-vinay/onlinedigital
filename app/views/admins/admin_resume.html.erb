@@ -1,0 +1,23 @@
+<% @page_title = "Resume details"%>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>id</th>
+      <th>username</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @resumes.each do |resume| %>
+  <tr>
+    <td><%= resume.id%></td>
+    <td><%= resume.user.first_name + resume.user.last_name%></td>
+    <td><%= link_to "delete",resume_path(:id => resume.id) , method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    <td><%= link_to "show", resume_path(:id => resume.id) %>
+      <br />
+  </tr>
+  <% end %>
+</table>

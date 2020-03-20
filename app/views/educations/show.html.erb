@@ -1,0 +1,27 @@
+<% @page_title = "Education"%>
+<%= render partial:"layouts/sidebar" %>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-top">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="container">
+        <h1>Education show</h1><br>
+        School/college name : <%= @education.name %><br>
+        Board : <%= @education.board %><br>
+        Degree : <%= @education.degree %><br>
+        Cource : <%= @education.cource %><br>
+        Graduation status : <%= @education.graduation_status%><br>
+        Pass year : <%= @education.pass_year %><br>
+        Country : <%= @education.country %><br>
+        State : <%= @education.state %><br>
+        City : <%= @education.city %><br>
+        Result : <%= @education.result %><br>
+        <div><span class="fa fa-edit"></span>
+          <%= link_to "edit", edit_resume_education_path(@resume,@education) %>
+        </div>
+        <div><span class="fa fa-trash-o"></span>
+          <%= link_to "delete", resume_education_path(@resume,@education), method: :delete, data: {confirm:"Are you sure?"}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

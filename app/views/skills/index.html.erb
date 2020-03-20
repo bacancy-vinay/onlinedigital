@@ -1,0 +1,26 @@
+<% @page_title = "Skill"%>
+<%= render partial:"layouts/sidebar" %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Skills</th>
+      <th>level</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @skills.each do |skill| %>
+  <tr>
+    <td><%= skill.skill_list %></td>
+    <td><%= skill.rating %></td>
+    <td><%= link_to "edit", edit_resume_skill_path(:id => skill.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "delete", resume_skill_path(:id => skill.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_skill_path, :class => "btn" %>
+</div>
+

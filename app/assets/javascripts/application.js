@@ -10,10 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
-//= require popper
-//= require bootstrap-sprockets
-//= require activestorage
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
+//= require dashboard
+//= require addcity
+//= require addedu
+//= require addexp
+//= require fieldchoice
+//= require rails.validations
+//= require bootstrap.min
+//= require popper
+//= require bootstrap
+//= require activestorage
+//= require cocoon
+//= require sidebar
 //= require_tree .
+
+
+// import '@client-side-validations/client-side-validations'
+

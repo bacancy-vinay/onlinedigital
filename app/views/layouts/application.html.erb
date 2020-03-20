@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DigitalProfile</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>DigitalProfile</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= render 'layouts/header' %>
+<body>
+  <%= render "layouts/alerts"%>
+  <% redirect_me %>
+  <%= yield%>
+</body>
 
-    <%= yield %>
-  </body>
+</html>
+</body>
 </html>

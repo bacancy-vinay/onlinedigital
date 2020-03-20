@@ -1,0 +1,11 @@
+<%= form_with(model: @main_field, class: "form-group", validate: true) do |f| %>
+
+<div class="form-group">
+  <%= f.label :main_feild %>
+  <%= f.text_field :main_field, autofocus:true, autocomplete: "main_field",  class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.submit :class => "btn btn-primary" %>
+</div>
+<% end %>

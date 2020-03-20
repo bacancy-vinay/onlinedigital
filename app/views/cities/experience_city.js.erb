@@ -1,0 +1,5 @@
+var exp_city = document.getElementById("experience_city");
+
+<% @exp_cities.each do |c| %>
+exp_city.options[exp_city.options.length] = new Option('<%= c%>');
+<% end %>

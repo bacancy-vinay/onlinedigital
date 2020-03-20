@@ -1,0 +1,39 @@
+<% @page_title = "User details"%>
+<%= render partial:"layouts/sidebar" %>
+<% if @resumeusers.empty? %>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_resumeuser_path, :class => "btn" %>
+</div>
+<% end %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>Prefix</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Linked-in</th>
+      <th>Birthdate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @resumeusers.each do |resumeuser| %>
+  <tr>
+    <td><%= resumeuser.prefix%></td>
+    <td><%= resumeuser.first_name %></td>
+    <td><%= resumeuser.last_name %></td>
+    <td><%= resumeuser.email %></td>
+    <td><%= resumeuser.mobile%></td>
+    <td><%= resumeuser.linkedin %></td>
+    <td><%= resumeuser.birthdate %></td>
+    <td><%= link_to "show", resume_resumeuser_path(:id=> resumeuser.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "edit", edit_resume_resumeuser_path(:id => resumeuser.id), class: "btn btn-primary" %></td>
+    <td>
+      <%= link_to "delete", resume_resumeuser_path(:id => resumeuser.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>

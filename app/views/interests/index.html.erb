@@ -1,0 +1,25 @@
+<% @page_title = "Interest"%>
+<%= render partial:"layouts/sidebar" %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th>interests</th>
+      <th>level</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @interests.each do |interest| %>
+  <tr>
+    <td><%= interest.interest_list %></td>
+    <td><%= link_to "edit", edit_resume_interest_path(:id => interest.id), class: "btn btn-primary" %></td>
+    <td><%= link_to "delete", resume_interest_path(:id => interest.id), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_resume_interest_path, :class => "btn" %>
+</div>
+
